@@ -9,8 +9,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+// view engine setups
 app.set('views', path.join(__dirname, 'views'));
+app.set('view options', { layout: '_layouts/layout' });
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
@@ -21,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// them cho admin
+app.use('/admin',require("./routes/admin/admin.route"));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
