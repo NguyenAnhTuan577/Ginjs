@@ -4,12 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index.route');
+var usersRouter = require('./routes/users.route');
 
 var app = express();
 // them tam
-var mydb=require('./dbs/db');
+// var mydb=require('./dbs/db');
 // var dm=mydb.load('select * from Tags')
 
 // var dm2=mydb.delete('tags',8);
@@ -26,12 +26,13 @@ app.set('view options', { layout: '_layouts/layout' });
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+//index---------------------------------------------- 
 app.use('/', indexRouter);
+
+//user-----------------------------------------------
 app.use('/users', usersRouter);
 
 // them cho admin
@@ -52,5 +53,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log("chạy thôi: https://localhost:3000");
 
 module.exports = app;

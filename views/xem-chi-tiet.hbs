@@ -1,168 +1,173 @@
 <!-- SECTION -->
 <div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<!-- Product main img -->
-					<div class="col-md-5 col-md-push-2">
-						<div id="product-main-img">
-							<div class="product-preview">
-								<img src="./images/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product08.png" alt="">
-							</div>
-						</div>
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- Product main img -->
+			<div class="col-md-5 col-md-push-2">
+				<div id="product-main-img">
+					<div class="product-preview">
+						<img src="./images/product01.png" alt="">
 					</div>
-					<!-- /Product main img -->
 
-					<!-- Product thumb imgs -->
-					<div class="col-md-2  col-md-pull-5">
-						<div id="product-imgs">
-							<div class="product-preview">
-								<img src="./images/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./images/product08.png" alt="">
-							</div>
-						</div>
+					<div class="product-preview">
+						<img src="./images/product03.png" alt="">
 					</div>
-					<!-- /Product thumb imgs -->
 
-					<!-- Product details -->
-					<div class="col-md-5">
-						<div class="product-details">
-							<h2 class="product-name">Tên sản phẩm</h2>
-							<div>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-								<a class="review-link" href="#">10 Nhận xét(s) | Thêm nhận xét</a>
-							</div>
-							<div>
-								<h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
-								<span class="product-available">Còn hàng</span>
-							</div>
-							<p>Pubg là một trong những tựa game thành công nhất năm 2017 khi nó thống trị thị trường game Thế giới trong suốt gần 1 năm qua. Mặc dù đã bước sang năm 2018, xong sức nóng của nó là điều không thể bàn cãi. Nó phổ biến ở hầu hết các phòng máy, đe dọa sự thống trị của nhiều tựa game nổi tiếng như LMHT, CS:GO.</p>
+					<div class="product-preview">
+						<img src="./images/product06.png" alt="">
+					</div>
 
-							<div class="product-options">
-								<label>
-									Kích thước
-									<select class="input-select">
-										<option value="0">13in</option>
-										<option value="0">14in</option>
-										<option value="0">15in</option>
-									</select>
-								</label>
-								<label>
-									Màu
-									<select class="input-select">
-										<option value="0">Đỏ</option>
-										<option value="0">Vàng</option>
-										<option value="0">Xanh</option>
-									</select>
-								</label>
-							</div>
+					<div class="product-preview">
+						<img src="./images/product08.png" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- /Product main img -->
 
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Số lượng
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
+			<!-- Product thumb imgs -->
+			<div class="col-md-2  col-md-pull-5">
+				<div id="product-imgs">
+					<div class="product-preview">
+						<img src="./images/product01.png" alt="">
+					</div>
+
+					<div class="product-preview">
+						<img src="./images/product03.png" alt="">
+					</div>
+
+					<div class="product-preview">
+						<img src="./images/product06.png" alt="">
+					</div>
+
+					<div class="product-preview">
+						<img src="./images/product08.png" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- /Product thumb imgs -->
+
+			<!-- Product details -->
+			<div class="col-md-5">
+				<div class="product-details">
+					<h2 class="product-name">{{game.name}}</h2>
+					<div>
+						<div class="product-rating">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-o"></i>
+						</div>
+						<a class="review-link" href="#">10 Nhận xét(s) | Thêm nhận xét</a>
+					</div>
+					<div>
+						<h3 class="product-price">{{gane.sale}} <del class="product-old-price">{{game.price}}</del></h3>
+						<span class="product-available">Còn hàng</span>
+					</div>
+					<p>{{game.content}}</p>
+
+					<div class="add-to-cart">
+						
+						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+
+						<ul class="product-links">
+							<li>Tags:</li>
+							{{#each tags}}
+								<li><a href="#">{{name}}</a></li>
+							{{/each}}
+							
+							{{!-- <a><a href="#">Phụ kiện</a></a> --}}
+						</ul>
+
+						<ul class="product-links">
+							<li>Chia sẻ:</li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+						</ul>
+
+					</div>
+				</div>
+				<!-- /Product details -->
+
+				<!-- Product tab -->
+				<div class="col-md-12">
+					<div id="product-tab">
+						<!-- product tab nav -->
+						<ul class="tab-nav">
+							<li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
+							<li><a data-toggle="tab" href="#tab2">Chi tiết</a></li>
+							<li><a data-toggle="tab" href="#tab3">Nhận xét (3)</a></li>
+						</ul>
+						<!-- /product tab nav -->
+
+						<!-- product tab content -->
+						<div class="tab-content">
+							<!-- tab1  -->
+							<div id="tab1" class="tab-pane fade in active">
+								<div class="row">
+									<div class="col-md-12">
+										<p>Có thể nói, PUBG đang là game bản quyền mới có sức hút hấp dẫn và có lượng
+											người chơi khủng hàng đầu hiện nay. Tuy rằng, tại Việt Nam các tựa game
+											bản quyền vẫn xa lạ đối với rất nhiều game thủ. Và PUBG lại đang không
+											được quảng cáo nhiều, không được truyền thông nhắc đến nhiều như một số
+											game bản quyền khác. Nhưng PUBG lại lặng thầm đi sâu vào làng game Việt
+											tự bao giờ và trở thành tựa game đang được yêu thích và nói đến hàng đầu
+											hiện nay.</p>
 									</div>
 								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
 							</div>
+							<!-- /tab1  -->
 
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> Thêm vào danh sách muốn chọn</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> Thêm để so sánh</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Danh mục:</li>
-								<li><a href="#">Tai nghe</a></li>
-								<li><a href="#">Phụ kiện</a></li>
-							</ul>
-
-							<ul class="product-links">
-								<li>Chia sẻ:</li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-							</ul>
-
-						</div>
-					</div>
-					<!-- /Product details -->
-
-					<!-- Product tab -->
-					<div class="col-md-12">
-						<div id="product-tab">
-							<!-- product tab nav -->
-							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
-								<li><a data-toggle="tab" href="#tab2">Chi tiết</a></li>
-								<li><a data-toggle="tab" href="#tab3">Nhận xét (3)</a></li>
-							</ul>
-							<!-- /product tab nav -->
-
-							<!-- product tab content -->
-							<div class="tab-content">
-								<!-- tab1  -->
-								<div id="tab1" class="tab-pane fade in active">
-									<div class="row">
-										<div class="col-md-12">
-											<p>Có thể nói, PUBG đang là game bản quyền mới có sức hút hấp dẫn và có lượng người chơi khủng hàng đầu hiện nay. Tuy rằng, tại Việt Nam các tựa game bản quyền vẫn xa lạ đối với rất nhiều game thủ. Và PUBG lại đang không được quảng cáo nhiều, không được truyền thông nhắc đến nhiều như một số game bản quyền khác. Nhưng PUBG lại lặng thầm đi sâu vào làng game Việt tự bao giờ và trở thành tựa game đang được yêu thích và nói đến hàng đầu hiện nay.</p>
-										</div>
+							<!-- tab2  -->
+							<div id="tab2" class="tab-pane fade in">
+								<div class="row">
+									<div class="col-md-12">
+										<p>Thể loại game chiến đấu để sinh tồn chẳng xa lạ, chẳng mới mẻ, nhưng
+											lại là một hành trình định mệnh khi dẫn dắt các game thủ đi từ
+											hết tựa game này đến tựa game khác và cuối cùng tất cả lại cùng gặp lại
+											nhau ở Battlegrounds. Ngay cả khi nhiều game thủ Việt, vốn đang là fan của
+											nhiều game bắn súng sinh tồn khác, họ cũng hội tụ cùng nhau tại PUBG, để
+											là một hội nhóm.</p>
 									</div>
 								</div>
-								<!-- /tab1  -->
+							</div>
+							<!-- /tab2  -->
 
-								<!-- tab2  -->
-								<div id="tab2" class="tab-pane fade in">
-									<div class="row">
-										<div class="col-md-12">
-											<p>Thể loại game chiến đấu để sinh tồn chẳng xa lạ, chẳng mới mẻ, nhưng lại là một hành trình định mệnh khi dẫn dắt các game thủ đi từ hết tựa game này đến tựa game khác và cuối cùng tất cả lại cùng gặp lại nhau ở Battlegrounds. Ngay cả khi nhiều game thủ Việt, vốn đang là fan của nhiều game bắn súng sinh tồn khác, họ cũng hội tụ cùng nhau tại PUBG, để là một hội nhóm.</p>
-										</div>
-									</div>
-								</div>
-								<!-- /tab2  -->
-
-								<!-- tab3  -->
-								<div id="tab3" class="tab-pane fade in">
-									<div class="row">
-										<!-- Rating -->
-										<div class="col-md-3">
-											<div id="rating">
-												<div class="rating-avg">
-													<span>4.5</span>
+							<!-- tab3  -->
+							<div id="tab3" class="tab-pane fade in">
+								<div class="row">
+									<!-- Rating -->
+									<div class="col-md-3">
+										<div id="rating">
+											<div class="rating-avg">
+												<span>4.5</span>
+												<div class="rating-stars">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
+												</div>
+											</div>
+											<ul class="rating">
+												<li>
+													<div class="rating-stars">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+													</div>
+													<div class="rating-progress">
+														<div style="width: 80%;"></div>
+													</div>
+													<span class="sum">3</span>
+												</li>
+												<li>
 													<div class="rating-stars">
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
@@ -170,312 +175,306 @@
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star-o"></i>
 													</div>
-												</div>
-												<ul class="rating">
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 80%;"></div>
-														</div>
-														<span class="sum">3</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div style="width: 60%;"></div>
-														</div>
-														<span class="sum">2</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-													<li>
-														<div class="rating-stars">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-														</div>
-														<div class="rating-progress">
-															<div></div>
-														</div>
-														<span class="sum">0</span>
-													</li>
-												</ul>
-											</div>
+													<div class="rating-progress">
+														<div style="width: 60%;"></div>
+													</div>
+													<span class="sum">2</span>
+												</li>
+												<li>
+													<div class="rating-stars">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+													</div>
+													<div class="rating-progress">
+														<div></div>
+													</div>
+													<span class="sum">0</span>
+												</li>
+												<li>
+													<div class="rating-stars">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+													</div>
+													<div class="rating-progress">
+														<div></div>
+													</div>
+													<span class="sum">0</span>
+												</li>
+												<li>
+													<div class="rating-stars">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+														<i class="fa fa-star-o"></i>
+													</div>
+													<div class="rating-progress">
+														<div></div>
+													</div>
+													<span class="sum">0</span>
+												</li>
+											</ul>
 										</div>
-										<!-- /Rating -->
+									</div>
+									<!-- /Rating -->
 
-										<!-- Reviews -->
-										<div class="col-md-6">
-											<div id="reviews">
-												<ul class="reviews">
-													<li>
-														<div class="review-heading">
-															<h5 class="name">Hoàng</h5>
-															<p class="date">27/10/2018, 8:00 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Khi nào có khuyến mãi vậy shop?</p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">Long</h5>
-															<p class="date">30/10/2018, 9:00 PM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Máy sử dụng rất tốt</p>
-														</div>
-													</li>
-													<li>
-														<div class="review-heading">
-															<h5 class="name">Hiền</h5>
-															<p class="date">12/11/2018, 7:00 AM</p>
-															<div class="review-rating">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-o empty"></i>
-															</div>
-														</div>
-														<div class="review-body">
-															<p>Máy đẹp, giao hàng nhanh.</p>
-														</div>
-													</li>
-												</ul>
-												<ul class="reviews-pagination">
-													<li class="active">1</li>
-													<li><a href="#">2</a></li>
-													<li><a href="#">3</a></li>
-													<li><a href="#">4</a></li>
-													<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- /Reviews -->
-
-										<!-- Review Form -->
-										<div class="col-md-3">
-											<div id="review-form">
-												<form class="review-form">
-													<input class="input" type="text" placeholder="Tên của bạn">
-													<input class="input" type="email" placeholder="Địa chỉ mail">
-													<textarea class="input" placeholder="Viết nhận xét..."></textarea>
-													<div class="input-rating">
-														<span>Đánh giá: </span>
-														<div class="stars">
-															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+									<!-- Reviews -->
+									<div class="col-md-6">
+										<div id="reviews">
+											<ul class="reviews">
+												<li>
+													<div class="review-heading">
+														<h5 class="name">Hoàng</h5>
+														<p class="date">27/10/2018, 8:00 PM</p>
+														<div class="review-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o empty"></i>
 														</div>
 													</div>
-													<button class="primary-btn">Gửi</button>
-												</form>
-											</div>
+													<div class="review-body">
+														<p>Khi nào có khuyến mãi vậy shop?</p>
+													</div>
+												</li>
+												<li>
+													<div class="review-heading">
+														<h5 class="name">Long</h5>
+														<p class="date">30/10/2018, 9:00 PM</p>
+														<div class="review-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o empty"></i>
+														</div>
+													</div>
+													<div class="review-body">
+														<p>Máy sử dụng rất tốt</p>
+													</div>
+												</li>
+												<li>
+													<div class="review-heading">
+														<h5 class="name">Hiền</h5>
+														<p class="date">12/11/2018, 7:00 AM</p>
+														<div class="review-rating">
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star-o empty"></i>
+														</div>
+													</div>
+													<div class="review-body">
+														<p>Máy đẹp, giao hàng nhanh.</p>
+													</div>
+												</li>
+											</ul>
+											<ul class="reviews-pagination">
+												<li class="active">1</li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+											</ul>
 										</div>
-										<!-- /Review Form -->
 									</div>
+									<!-- /Reviews -->
+
+									<!-- Review Form -->
+									<div class="col-md-3">
+										<div id="review-form">
+											<form class="review-form">
+												<input class="input" type="text" placeholder="Tên của bạn">
+												<input class="input" type="email" placeholder="Địa chỉ mail">
+												<textarea class="input" placeholder="Viết nhận xét..."></textarea>
+												<div class="input-rating">
+													<span>Đánh giá: </span>
+													<div class="stars">
+														<input id="star5" name="rating" value="5" type="radio"><label
+															for="star5"></label>
+														<input id="star4" name="rating" value="4" type="radio"><label
+															for="star4"></label>
+														<input id="star3" name="rating" value="3" type="radio"><label
+															for="star3"></label>
+														<input id="star2" name="rating" value="2" type="radio"><label
+															for="star2"></label>
+														<input id="star1" name="rating" value="1" type="radio"><label
+															for="star1"></label>
+													</div>
+												</div>
+												<button class="primary-btn">Gửi</button>
+											</form>
+										</div>
+									</div>
+									<!-- /Review Form -->
 								</div>
-								<!-- /tab3  -->
 							</div>
-							<!-- /product tab content  -->
+							<!-- /tab3  -->
 						</div>
+						<!-- /product tab content  -->
 					</div>
-					<!-- /product tab -->
 				</div>
-				<!-- /row -->
+				<!-- /product tab -->
 			</div>
-			<!-- /container -->
-</div>
-<!-- /SECTION -->
-<!-- Section -->
-<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+	<!-- Section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
 
-					<div class="col-md-12">
-						<div class="section-title text-center">
-							<h3 class="title">Sản phẩm liên quan</h3>
-						</div>
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h3 class="title">Sản phẩm liên quan</h3>
 					</div>
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="./images/product01.png" alt="">
-								<div class="product-label">
-									<span class="sale">-30%</span>
-								</div>
-							</div>
-							<div class="product-body">
-								<p class="product-category">Tên danh mục</p>
-								<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="./images/product02.png" alt="">
-								<div class="product-label">
-									<span class="new">NEW</span>
-								</div>
-							</div>
-							<div class="product-body">
-								<p class="product-category">Tên danh mục</p>
-								<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
-					<div class="clearfix visible-sm visible-xs"></div>
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="./images/product03.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Tên danh mục</p>
-								<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="./images/product04.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Tên danh mục</p>
-								<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
 				</div>
-				<!-- /row -->
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="./images/product01.png" alt="">
+							<div class="product-label">
+								<span class="sale">-30%</span>
+							</div>
+						</div>
+						<div class="product-body">
+							<p class="product-category">Tên danh mục</p>
+							<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
+										to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
+										to compare</span></button>
+								<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i
+										class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="./images/product02.png" alt="">
+							<div class="product-label">
+								<span class="new">NEW</span>
+							</div>
+						</div>
+						<div class="product-body">
+							<p class="product-category">Tên danh mục</p>
+							<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
+										to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
+										to compare</span></button>
+								<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i
+										class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="./images/product03.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Tên danh mục</p>
+							<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
+										to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
+										to compare</span></button>
+								<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i
+										class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="./images/product04.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Tên danh mục</p>
+							<h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
+										to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add
+										to compare</span></button>
+								<button class="quick-view" onclick="window.location.href = '/xem-chi-tiet'"><i
+										class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
 			</div>
-			<!-- /container -->
-</div>
-<!-- /Section -->
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Section -->
