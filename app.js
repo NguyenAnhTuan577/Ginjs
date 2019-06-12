@@ -12,7 +12,7 @@ var app = express();
 var mydb=require('./dbs/db');
 // var dm=mydb.load('select * from Tags')
 
-var dm2=mydb.delete('tags',8);
+// var dm2=mydb.delete('tags',8);
 // var dm1=mydb.add('tags','(name)','($1)',['2D']);
 // var dm1=mydb.add('tags',{name: '2D'});
 

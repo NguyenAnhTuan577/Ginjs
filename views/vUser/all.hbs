@@ -262,9 +262,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Hoàng Vũ</td>
+                                    {{#each this.users}}
+                                        <tr>
+                                        <th scope="row">{{id}}</th>
+                                        <td>{{username}}</td>
                                         
                                         <td>27/11/2001</td>
                                         <td>hoangvu78@gmail.com</td>
@@ -276,34 +277,7 @@
                                             </ul>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Hàn Phong</td>
-                                       
-                                        <td>3/2/1998</td>
-                                        <td>hanphong@gmail.com</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Gia Huy</td>
-                                        
-                                        <td>6/7/1990</td>
-                                        <td>giahuy90@gmail.com</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    {{/each}}
                                     
                                 </tbody>
                             </table>

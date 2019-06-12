@@ -16,8 +16,8 @@ module.exports = {
             connection.connect();
             connection.query(sql, (error, results) => {
                 if (error) reject(error);
-                else resolve(results);
-                console.log(results.rows);
+                else resolve(results.rows);
+                // console.log(results.rows);
                 connection.end();
             });
         })
