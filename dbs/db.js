@@ -7,8 +7,6 @@ var createCon = () => {
     });
 };
 
-
-
 module.exports = {
     load: sql => {
         return new Promise((resolve, reject) => {
@@ -16,8 +14,8 @@ module.exports = {
             connection.connect();
             connection.query(sql, (error, results) => {
                 if (error) reject(error);
-                else resolve(results);
-                console.log(results.rows);
+                else resolve(results.rows);
+                // console.log(results.rows);
                 connection.end();
             });
         })
@@ -61,7 +59,7 @@ module.exports = {
         });
         sql = sql.substr(0, sql.length - 1);
         sql += ` where id = ${object.id}`;
-        console.log(sql);
+        // console.log(sql);
         var values = Object.keys(object).map((key) => {
             return object[key];
         });
@@ -79,8 +77,8 @@ module.exports = {
             });
         })
     },
-    delete: (table, id) => {
-        var sql = `DELETE FROM ${table} WHERE id=${id}`
+    delete: (table, field, id) => {
+        var sql = `DELETE FROM ${table} WHERE ${field}=${id}`
         var connection = createCon();
         connection.connect();
         return new Promise((resolve, reject) => {
