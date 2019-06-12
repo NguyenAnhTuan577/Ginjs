@@ -7,7 +7,7 @@
 			<!-- Product main img -->
 			<div class="col-md-5 col-md-push-2">
 				<div id="product-main-img">
-					<div class="product-preview">
+					{{!-- <div class="product-preview">
 						<img src="./images/product01.png" alt="">
 					</div>
 
@@ -21,7 +21,12 @@
 
 					<div class="product-preview">
 						<img src="./images/product08.png" alt="">
+					</div> --}}
+					{{#each images}}
+					<div class="product-preview">
+						<img src="{{linkimage}}" alt="{{inkimage}}">
 					</div>
+					{{/each}}
 				</div>
 			</div>
 			<!-- /Product main img -->
@@ -29,7 +34,12 @@
 			<!-- Product thumb imgs -->
 			<div class="col-md-2  col-md-pull-5">
 				<div id="product-imgs">
+					{{#each images}}
 					<div class="product-preview">
+						<img src="{{linkimage}}" alt="{{inkimage}}">
+					</div>
+					{{/each}}
+					{{!-- <div class="product-preview">
 						<img src="./images/product01.png" alt="">
 					</div>
 
@@ -43,7 +53,7 @@
 
 					<div class="product-preview">
 						<img src="./images/product08.png" alt="">
-					</div>
+					</div> --}}
 				</div>
 			</div>
 			<!-- /Product thumb imgs -->
@@ -52,32 +62,26 @@
 			<div class="col-md-5">
 				<div class="product-details">
 					<h2 class="product-name">{{game.name}}</h2>
+					<ul class="product-links">
+						<li>Thể loại:</li>
+						<li><a href="/danh-sach-san-pham-theo-loai/{{game.idcategory}}">{{game.category}}</a></li>
+					</ul>
 					<div>
-						<div class="product-rating">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star-o"></i>
-						</div>
-						<a class="review-link" href="#">10 Nhận xét(s) | Thêm nhận xét</a>
-					</div>
-					<div>
-						<h3 class="product-price">{{gane.sale}} <del class="product-old-price">{{game.price}}</del></h3>
+						<h3 class="product-price">{{game.sale}} <del class="product-old-price">{{game.price}}</del></h3>
 						<span class="product-available">Còn hàng</span>
 					</div>
 					<p>{{game.content}}</p>
 
 					<div class="add-to-cart">
-						
+
 						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
 
 						<ul class="product-links">
 							<li>Tags:</li>
 							{{#each tags}}
-								<li><a href="#">{{name}}</a></li>
+							<li><a href="#">{{name}}</a></li>
 							{{/each}}
-							
+
 							{{!-- <a><a href="#">Phụ kiện</a></a> --}}
 						</ul>
 
@@ -98,9 +102,8 @@
 					<div id="product-tab">
 						<!-- product tab nav -->
 						<ul class="tab-nav">
-							<li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
+							<li class="active"><a data-toggle="tab" href="#tab1">Cấu hình</a></li>
 							<li><a data-toggle="tab" href="#tab2">Chi tiết</a></li>
-							<li><a data-toggle="tab" href="#tab3">Nhận xét (3)</a></li>
 						</ul>
 						<!-- /product tab nav -->
 
@@ -110,13 +113,7 @@
 							<div id="tab1" class="tab-pane fade in active">
 								<div class="row">
 									<div class="col-md-12">
-										<p>Có thể nói, PUBG đang là game bản quyền mới có sức hút hấp dẫn và có lượng
-											người chơi khủng hàng đầu hiện nay. Tuy rằng, tại Việt Nam các tựa game
-											bản quyền vẫn xa lạ đối với rất nhiều game thủ. Và PUBG lại đang không
-											được quảng cáo nhiều, không được truyền thông nhắc đến nhiều như một số
-											game bản quyền khác. Nhưng PUBG lại lặng thầm đi sâu vào làng game Việt
-											tự bao giờ và trở thành tựa game đang được yêu thích và nói đến hàng đầu
-											hiện nay.</p>
+										{{{game.configuration}}}
 									</div>
 								</div>
 							</div>
@@ -126,198 +123,11 @@
 							<div id="tab2" class="tab-pane fade in">
 								<div class="row">
 									<div class="col-md-12">
-										<p>Thể loại game chiến đấu để sinh tồn chẳng xa lạ, chẳng mới mẻ, nhưng
-											lại là một hành trình định mệnh khi dẫn dắt các game thủ đi từ
-											hết tựa game này đến tựa game khác và cuối cùng tất cả lại cùng gặp lại
-											nhau ở Battlegrounds. Ngay cả khi nhiều game thủ Việt, vốn đang là fan của
-											nhiều game bắn súng sinh tồn khác, họ cũng hội tụ cùng nhau tại PUBG, để
-											là một hội nhóm.</p>
+										<p>{{game.content}}</p>
 									</div>
 								</div>
 							</div>
 							<!-- /tab2  -->
-
-							<!-- tab3  -->
-							<div id="tab3" class="tab-pane fade in">
-								<div class="row">
-									<!-- Rating -->
-									<div class="col-md-3">
-										<div id="rating">
-											<div class="rating-avg">
-												<span>4.5</span>
-												<div class="rating-stars">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-											</div>
-											<ul class="rating">
-												<li>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-													<div class="rating-progress">
-														<div style="width: 80%;"></div>
-													</div>
-													<span class="sum">3</span>
-												</li>
-												<li>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<div class="rating-progress">
-														<div style="width: 60%;"></div>
-													</div>
-													<span class="sum">2</span>
-												</li>
-												<li>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<div class="rating-progress">
-														<div></div>
-													</div>
-													<span class="sum">0</span>
-												</li>
-												<li>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<div class="rating-progress">
-														<div></div>
-													</div>
-													<span class="sum">0</span>
-												</li>
-												<li>
-													<div class="rating-stars">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<div class="rating-progress">
-														<div></div>
-													</div>
-													<span class="sum">0</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<!-- /Rating -->
-
-									<!-- Reviews -->
-									<div class="col-md-6">
-										<div id="reviews">
-											<ul class="reviews">
-												<li>
-													<div class="review-heading">
-														<h5 class="name">Hoàng</h5>
-														<p class="date">27/10/2018, 8:00 PM</p>
-														<div class="review-rating">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o empty"></i>
-														</div>
-													</div>
-													<div class="review-body">
-														<p>Khi nào có khuyến mãi vậy shop?</p>
-													</div>
-												</li>
-												<li>
-													<div class="review-heading">
-														<h5 class="name">Long</h5>
-														<p class="date">30/10/2018, 9:00 PM</p>
-														<div class="review-rating">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o empty"></i>
-														</div>
-													</div>
-													<div class="review-body">
-														<p>Máy sử dụng rất tốt</p>
-													</div>
-												</li>
-												<li>
-													<div class="review-heading">
-														<h5 class="name">Hiền</h5>
-														<p class="date">12/11/2018, 7:00 AM</p>
-														<div class="review-rating">
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star"></i>
-															<i class="fa fa-star-o empty"></i>
-														</div>
-													</div>
-													<div class="review-body">
-														<p>Máy đẹp, giao hàng nhanh.</p>
-													</div>
-												</li>
-											</ul>
-											<ul class="reviews-pagination">
-												<li class="active">1</li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-											</ul>
-										</div>
-									</div>
-									<!-- /Reviews -->
-
-									<!-- Review Form -->
-									<div class="col-md-3">
-										<div id="review-form">
-											<form class="review-form">
-												<input class="input" type="text" placeholder="Tên của bạn">
-												<input class="input" type="email" placeholder="Địa chỉ mail">
-												<textarea class="input" placeholder="Viết nhận xét..."></textarea>
-												<div class="input-rating">
-													<span>Đánh giá: </span>
-													<div class="stars">
-														<input id="star5" name="rating" value="5" type="radio"><label
-															for="star5"></label>
-														<input id="star4" name="rating" value="4" type="radio"><label
-															for="star4"></label>
-														<input id="star3" name="rating" value="3" type="radio"><label
-															for="star3"></label>
-														<input id="star2" name="rating" value="2" type="radio"><label
-															for="star2"></label>
-														<input id="star1" name="rating" value="1" type="radio"><label
-															for="star1"></label>
-													</div>
-												</div>
-												<button class="primary-btn">Gửi</button>
-											</form>
-										</div>
-									</div>
-									<!-- /Review Form -->
-								</div>
-							</div>
-							<!-- /tab3  -->
 						</div>
 						<!-- /product tab content  -->
 					</div>

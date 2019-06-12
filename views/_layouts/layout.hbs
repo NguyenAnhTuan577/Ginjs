@@ -107,9 +107,8 @@
                             <!-- Wishlist -->
                             <div>
                                 <a href="/">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span>Yêu thích</span>
-                                    <div class="qty">2</div>
+                                    <i class="fas fa-box    "></i>
+                                    <span>Game của bạn</span>
                                 </a>
                             </div>
                             <!-- /Wishlist -->
@@ -187,9 +186,18 @@
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="/">Trang chủ</a></li>
                     <li><a href="/tim-kiem">Game bán chạy</a></li>
-                    <li><a href="/danh-sach-san-pham-theo-loai">Thể loại</a></li>
-                    <li><a href="/danh-sach-san-pham-theo-loai">Kho game của bạn</a></li>
                     <li><a href="/danh-sach-san-pham-theo-loai">Game đang giảm giá</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="/tim-kiem" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">thể loại <i class="fa fa-chevron-down"
+                                aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{#each categories}}
+                            <li class="dropdown-item"><a href="/danh-sach-san-pham-theo-loai/{{id}}">{{name}}</a></li>
+                            {{/each}}
+
+                        </ul>
+                    </li>
                 </ul>
                 <!-- /NAV -->
             </div>
@@ -226,10 +234,9 @@
                             <h3 class="footer-title">Danh mục</h3>
                             <ul class="footer-links">
 
-                                <li><a href="/tim-kiem">Game bán chạy</a></li>
-                                <li><a href="/danh-sach-san-pham-theo-loai">Thể loại</a></li>
-                                <li><a href="/danh-sach-san-pham-theo-loai">Kho game của bạn</a></li>
-                                <li><a href="/danh-sach-san-pham-theo-loai">Game đang giảm giá</a></li>
+                                {{#each categories}}
+                                <li><a href="/danh-sach-san-pham-theo-loai/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>

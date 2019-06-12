@@ -12,7 +12,7 @@ module.exports = {
   },
 
   singleWithDeltal: id => {
-    var sql = `select g.id,g.name,c.name category, amount,content, price,saleoff,configuration from games g,categories c where g.id = ${id} and g.idcategory=c.id`;
+    var sql = `select g.id,g.name,g.idcategory ,c.name category, amount,content, price,saleoff,configuration from games g,categories c where g.id = ${id} and g.idcategory=c.id`;
     return db.load(sql);
   },
   add: entity => {

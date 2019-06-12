@@ -2,16 +2,17 @@ var express = require("express");
 var router = express.Router();
 
 var app_name = "GINJSGame - Shop game số 1 VN";
-//index
+//index------------------------------------------
+router.use(require('../middlewares/index.mdw'));
 router.get("/", (req, res) => {
-  res.render("index", { title: app_name });
+  res.render("index", { title: app_name, categories: res.locals.lcCategories });
 });
 
 //xem chi tiet
 router.use("/xem-chi-tiet", require("./detal.route"));
 
 //----------------------------------------------
-router.get("/danh-sach-san-pham-theo-loai/", function(req, res, next) {
+router.get("/danh-sach-san-pham-theo-loai", function(req, res, next) {
   res.render("danh-sach-san-pham-theo-loai", {
     title: "GINJSGame - Danh sách sản phẩm"
   });
