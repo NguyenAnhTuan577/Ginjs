@@ -253,16 +253,19 @@
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">IdCategory</th>
                                         <th scope="col">price</th>
-                                        <th scope="col">action</th>
+                                        <th scope="col">saleoff</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Pubg</td>
-                                        
-                                        <td>$120</td>
+                                   {{#each this.products}}
+                                        <tr>
+                                        <th scope="row">{{id}}</th>
+                                        <td>{{name}}</td>
+                                        <td>{{idcategory}}</td>
+                                        <td>{{price}}</td>
+                                        <td>{{saleoff}}</td>
                                         <td>
                                             <ul class="d-flex justify-content-center">
                                                 <li class="mr-3"><a href="#" class="text-secondary"><i
@@ -270,46 +273,9 @@
                                                 <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
                                             </ul>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Liên minh huyền thoại</td>
-                                       
-                                        <td>$150</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Fifa Online 3</td>
-                                        
-                                        <td>$120</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Khu vườn trên mây</td>
-                                        
-                                        <td>$150</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                        </tr>
+
+                                   {{/each}}
                                 </tbody>
                             </table>
                         </div>

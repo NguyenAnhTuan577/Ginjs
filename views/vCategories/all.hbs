@@ -280,15 +280,14 @@
                                             <tr>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Quantity</th>
                                                 <th scope="col">action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Hành động</td>
-                                                <td>400</td>
+                                            {{#each this.categories}}
+                                                <tr>
+                                                <th scope="row">{{id}}</th>
+                                                <td>{{name}}</td>
                                                 <td>
                                                     <ul class="d-flex justify-content-center">
                                                         <li class="mr-3"><a href="#" class="text-secondary"><i
@@ -297,20 +296,8 @@
                                                         </li>
                                                     </ul>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Trí tuệ</td>
-                                                <td>109</td>
-                                                <td>
-                                                    <ul class="d-flex justify-content-center">
-                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                                    class="fa fa-edit"></i></a></li>
-                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
+                                                </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>

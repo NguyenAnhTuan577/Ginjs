@@ -3,8 +3,12 @@ var router = express.Router();
 var userModel=require('../../models/users.model')
 
 router.get('/',(req,res)=>{
+    res.redirect('/admin/users/all')
+});
+
+router.get('/all',(req,res)=>{
     var p=userModel.all();
-    console.log("ahihi");
+    // console.log("ahihi");
     console.log(p);
     p.then(rows=>{
         console.log(rows);
@@ -12,12 +16,6 @@ router.get('/',(req,res)=>{
             layout:'_layouts/layout_admin',users:rows
         });
     })
-});
-
-router.get('/all',(req,res)=>{
-    res.render('vUser/all',{
-        layout:'_layouts/layout_admin'
-    });
 });
 
 module.exports = router;
