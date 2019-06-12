@@ -34,38 +34,31 @@
                                     class="ti-layout-sidebar-left"></i><span>Quản lý game
                                 </span></a>
                             <ul class="collapse">
-                                <li><a href="/products/all">Theo tên</a></li>
-                                <li><a href="/">Theo danh mục</a></li>
+                                <li><a href="/admin/products/all">Tất cả</a></li>
+                                <li><a href="/admin/products/all">Hành động</a></li>
+                                <li><a href="/admin/products/all">Trí tuệ</a></li>
+                                <li><a href="/admin/products/all">Thể thao</a></li>
+                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i
+                            <a href="/admin/categories/all" aria-expanded="true"><i
                                     class="ti-layout-sidebar-left"></i><span>Quản lý thể loại
                                 </span></a>
-                            <ul class="collapse">
-                                <li><a href="/categories/all">Tất cả thể loại</a></li>
-                                <li><a href="/categories/all">Game Hành động</a></li>
-                                <li><a href="/categories/all">Game Chiến thuật</a></li>
-                                <li><a href="/categories/all">Game Trí tuệ</a></li>
-                                <li><a href="/categories/all">Game thể thao</a></li>
-                                <li><a href="/categories/all">Game giả lập</a></li>
-                            </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Quản lý
                                     người dùng</span></a>
                             <ul class="collapse">
-                                <li><a href="/user/all">Tất cả</a></li>
-                                <li><a href="/user/all">Người dùng</a></li>
-                                <li><a href="/user/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/all">Tất cả</a></li>
+                                <li><a href="/admin/users/all">Người dùng</a></li>
+                                <li><a href="/admin/users/all">Người Quản lý</a></li>
                             </ul>
                         </li>
 
                         <li><a href="javascript:;"><i class="ti-receipt"></i> <span>Sidebar
                                     Types</span></a></li>
-
-
 
                     </ul>
                 </nav>
@@ -245,90 +238,90 @@
         </div>
         <!-- header area end -->
 
-        <!-- page title area end -->
-<div class="main-content-inner">
-    <div class="row">
-
-        <!-- Striped table start -->
-        <div class="col-12 mt-5">
-            <div class="card">
-                <div class="card-body">
-                    {{!-- <h4 class="header-title">Striped Rows</h4> --}}
-                    <div class="single-table">
-                        <div class="table-responsive">
-                            <table class="table table-striped text-center">
-                                <thead class="text-uppercase">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">price</th>
-                                        <th scope="col">action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Pubg</td>
-                                        
-                                        <td>$120</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Liên minh huyền thoại</td>
-                                       
-                                        <td>$150</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Fifa Online 3</td>
-                                        
-                                        <td>$120</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Khu vườn trên mây</td>
-                                        
-                                        <td>$150</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <!-- page title area start -->
+        <div class="page-title-area">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="breadcrumbs-area clearfix">
+                        <h4 class="page-title pull-left">Dashboard</h4>
+                        <ul class="breadcrumbs pull-left">
+                            <li><a href="/">Biểu đồ</a></li>
+                            <li><span>Biểu dồ</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 clearfix">
+                    <div class="user-profile pull-right">
+                        <img class="avatar user-thumb" src="/assets/images/author/avatar.png" alt="avatar">
+                        <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Administrator<i
+                                class="fa fa-angle-down"></i></h4>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="javascript:;">Đăng xuất</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Striped table end -->
-        
-    </div>
-</div>
+        <!-- page title area end -->
+
+        <!-- page title area end -->
+        <div class="main-content-inner">
+            <div class="row">
+
+                <!-- Striped table start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Striped Rows</h4>
+                            <div class="single-table">
+                                <div class="table-responsive">
+                                    <table class="table table-striped text-center">
+                                        <thead class="text-uppercase">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Hành động</td>
+                                                <td>400</td>
+                                                <td>
+                                                    <ul class="d-flex justify-content-center">
+                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
+                                                                    class="fa fa-edit"></i></a></li>
+                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Trí tuệ</td>
+                                                <td>109</td>
+                                                <td>
+                                                    <ul class="d-flex justify-content-center">
+                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
+                                                                    class="fa fa-edit"></i></a></li>
+                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Striped table end -->
+
+            </div>
+        </div>
     </div>
     <!-- main content area end -->
     <!-- footer area start-->

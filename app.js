@@ -8,6 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+// them tam
+var mydb=require('./dbs/db');
+// var dm=mydb.load('select * from Tags')
+
+var dm2=mydb.delete('tags',8);
+// var dm1=mydb.add('tags','(name)','($1)',['2D']);
+// var dm1=mydb.add('tags',{name: '2D'});
+
+// console.log("chay cchua");
+
+
 
 // view engine setups
 app.set('views', path.join(__dirname, 'views'));
