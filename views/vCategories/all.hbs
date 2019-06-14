@@ -238,32 +238,62 @@
         </div>
         <!-- header area end -->
 
-        <!-- page title area start -->
-        <div class="page-title-area">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                    <div class="breadcrumbs-area clearfix">
-                        <h4 class="page-title pull-left">Dashboard</h4>
-                        <ul class="breadcrumbs pull-left">
-                            <li><a href="/">Biểu đồ</a></li>
-                            <li><span>Biểu dồ</span></li>
-                        </ul>
+        <!-- page title area end -->
+
+        {{!-- modal Them --}}
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm game</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="col-sm-6 clearfix">
-                    <div class="user-profile pull-right">
-                        <img class="avatar user-thumb" src="/assets/images/author/avatar.png" alt="avatar">
-                        <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Administrator<i
-                                class="fa fa-angle-down"></i></h4>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:;">Đăng xuất</a>
-                        </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="recipient-name">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- page title area end -->
+        {{!-- Mode Sua --}}
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết thể loại game</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="update-id" class="col-form-label">Id:</label>
+                                <input type="text" class="form-control" name="id" id="update-id" readonly>
+                                <label for="update-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="update-name">
 
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            <button type="submit" class="btn btn-danger" formaction="/admin/categories/all/delete">Xóa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- page title area end -->
         <div class="main-content-inner">
             <div class="row">
@@ -271,8 +301,15 @@
                 <!-- Striped table start -->
                 <div class="col-12 mt-5">
                     <div class="card">
+
+                        <div class="card-header" style="display: inline">
+
+                            <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal"
+                                data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus"
+                                    aria-hidden="true"></i>Thêm thể
+                                loại</button>
+                        </div>
                         <div class="card-body">
-                            <h4 class="header-title">Striped Rows</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-striped text-center">
@@ -285,28 +322,56 @@
                                         </thead>
                                         <tbody>
                                             {{#each this.categories}}
-                                                <tr>
-                                                <th scope="row">{{id}}</th>
-                                                <td>{{name}}</td>
+                                            <tr>
+                                                <th scope="row" id="id-{{id}}">{{id}}</th>
+                                                <td id="name-{{id}}">{{name}}</td>
                                                 <td>
                                                     <ul class="d-flex justify-content-center">
-                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                                    class="fa fa-edit"></i></a></li>
-                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+
+                                                        <li class="mr-3"><a type="button" class="text-secondary"
+                                                                data-toggle="modal" data-target="#editModal"><i
+                                                                    class="fa fa-edit" onclick="func{{id}}()"></i></a></li>
+                                                        <script>
+
+                                                            function func{{id}}() {
+                                                                
+                                                                document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
+                                                                document.getElementById("update-name").value = document.getElementById("name-{{id}}").innerHTML;
+                                                            }
+                                                        </script>
                                                         </li>
                                                     </ul>
                                                 </td>
-                                                </tr>
+                                            </tr>
                                             {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
+                        <!-- Striped table end -->
+                        <div class="card-footer">
+                            <nav aria-label="..." class="float-right">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Previous</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            2
+                                            <span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-                <!-- Striped table end -->
-
             </div>
         </div>
     </div>

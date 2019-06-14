@@ -240,59 +240,88 @@
         </div>
         <!-- header area end -->
 
-     <!-- page title area end -->
-<div class="main-content-inner">
-    <div class="row">
+        <!-- page title area end -->
+        <div class="main-content-inner">
+            <div class="row">
+                {{!-- ahihi --}}
 
-        <!-- Striped table start -->
-        <div class="col-12 mt-5">
-            <div class="card">
-                <div class="card-body">
-                    {{!-- <h4 class="header-title">Striped Rows</h4> --}}
-                    <div class="single-table">
-                        <div class="table-responsive">
-                            <table class="table table-striped text-center">
-                                <thead class="text-uppercase">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">UserName</th>
-                                        <th scope="col">Password</th>
-                                        <th scope="col">FullName</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Monney</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#each this.users}}
-                                        <tr>
-                                        <th scope="row">{{id}}</th>
-                                        <td>{{username}}</td>
-                                        <td>{{password}}</td>
-                                        <td>{{fullname}}</td>
-                                        <td>{{email}}</td>
-                                        <td>{{money}}</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    {{/each}}
-                                    
-                                </tbody>
-                            </table>
+                <!-- Striped table start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="card-header" style="display: inline">
+                            <h2 style="float:left">Sản phẩm</h2>
+                            <button onclick="window.location.href='javascript:;"
+                                class="add-product btn btn-primary bg-green float-right"> <i class="fa fa-plus"
+                                    aria-hidden="true"></i> Thêm sản phẩm</button>
+                        </div>
+                        <div class="card-body">
+                            {{!-- <h4 class="header-title">Striped Rows</h4> --}}
+
+                            <div class="single-table">
+                                <div class="table-responsive">
+                                    <table class="table table-striped text-center">
+                                        <thead class="text-uppercase">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">UserName</th>
+                                                <th scope="col">Password</th>
+                                                <th scope="col">FullName</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Monney</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each this.users}}
+                                            <tr>
+                                                <th scope="row">{{id}}</th>
+                                                <td>{{username}}</td>
+                                                <td>{{password}}</td>
+                                                <td>{{fullname}}</td>
+                                                <td>{{email}}</td>
+                                                <td>{{money}}</td>
+                                                <td>
+                                                    <ul class="d-flex justify-content-center">
+                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
+                                                                    class="fa fa-edit"></i></a></li>
+                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <nav aria-label="..." class="float-right">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Previous</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            2
+                                            <span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
+                <!-- Striped table end -->
+
             </div>
         </div>
-        <!-- Striped table end -->
-        
-    </div>
-</div>
     </div>
     <!-- main content area end -->
     <!-- footer area start-->

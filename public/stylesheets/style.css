@@ -2188,3 +2188,7 @@ textarea.input {
     margin-top: 10px;
   }
 }
+.add-product {
+  display: inline;
+  float:right;
+}
