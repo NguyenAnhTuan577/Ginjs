@@ -17,6 +17,31 @@ router.get('/all',(req,res)=>{
         });
     })
 });
+
+router.get('/clients',(req,res)=>{
+    var p=userModel.clients();
+    // console.log("ahihi");
+    console.log(p);
+    p.then(rows=>{
+        console.log(rows);
+        res.render('vUser/all',{
+            layout:'_layouts/layout_admin',users:rows
+        });
+    })
+});
+
+router.get('/admins',(req,res)=>{
+    var p=userModel.admins();
+    // console.log("ahihi");
+    console.log(p);
+    p.then(rows=>{
+        console.log(rows);
+        res.render('vUser/all',{
+            layout:'_layouts/layout_admin',users:rows
+        });
+    })
+});
+
 router.post("/all/add",async (req,res,next)=>{
     // console.log("hello them nekB");
     try {

@@ -35,10 +35,9 @@
                                 </span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/products/all">Tất cả</a></li>
-                                <li><a href="/admin/products/all">Hành động</a></li>
-                                <li><a href="/admin/products/all">Trí tuệ</a></li>
-                                <li><a href="/admin/products/all">Thể thao</a></li>
-                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
+                                {{#each lcCategories}}
+                                    <li><a href="/admin/products/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
 
@@ -52,8 +51,8 @@
                                     người dùng</span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/users/all">Tất cả</a></li>
-                                <li><a href="/admin/users/all">Người dùng</a></li>
-                                <li><a href="/admin/users/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/clients">Người dùng</a></li>
+                                <li><a href="/admin/users/admins">Người Quản lý</a></li>
                             </ul>
                         </li>
 
@@ -358,13 +357,14 @@
                                     <li class="page-item disabled">
                                         <span class="page-link">Previous</span>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active">
                                         <span class="page-link">
-                                            2
+                                            1
                                             <span class="sr-only">(current)</span>
                                         </span>
                                     </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="#">Next</a>

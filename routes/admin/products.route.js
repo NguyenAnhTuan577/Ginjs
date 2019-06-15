@@ -18,6 +18,19 @@ router.get("/all", (req, res) => {
     })
 });
 
+router.get("/:id", (req, res) => {
+    var id=req.params.id
+    var p=productModel.allGameOfACategory(id);
+      // console.log("ahihi");
+      // console.log(p);
+      p.then(rows=>{
+          console.log(rows);
+          res.render('vProducts/all',{
+              layout:'_layouts/layout_admin',products:rows
+          });
+      })
+  });
+
 router.post("/all/add",async (req,res,next)=>{
   // console.log("hello them nekB");
   try {

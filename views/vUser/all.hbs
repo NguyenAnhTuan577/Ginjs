@@ -35,10 +35,9 @@
                                 </span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/products/all">Tất cả</a></li>
-                                <li><a href="/admin/products/all">Hành động</a></li>
-                                <li><a href="/admin/products/all">Trí tuệ</a></li>
-                                <li><a href="/admin/products/all">Thể thao</a></li>
-                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
+                                {{#each lcCategories}}
+                                <li><a href="/admin/products/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
 
@@ -52,8 +51,8 @@
                                     người dùng</span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/users/all">Tất cả</a></li>
-                                <li><a href="/admin/users/all">Người dùng</a></li>
-                                <li><a href="/admin/users/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/clients">Người dùng</a></li>
+                                <li><a href="/admin/users/admins">Người Quản lý</a></li>
                             </ul>
                         </li>
 
@@ -265,6 +264,8 @@
                                 <input type="text" class="form-control" name="email" id="email">
                                 <label for="money" class="col-form-label">Money:</label>
                                 <input type="text" class="form-control" name="money" id="money">
+                                <label for="type" class="col-form-label">Type:</label>
+                                <input type="text" class="form-control" name="type" id="type">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary"
@@ -300,6 +301,8 @@
                                 <input type="text" class="form-control" name="email" id="update-email">
                                 <label for="update-money" class="col-form-label">Money:</label>
                                 <input type="text" class="form-control" name="money" id="update-money">
+                                <label for="update-type" class="col-form-label">Type:</label>
+                                <input type="text" class="form-control" name="type" id="update-type">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary" formaction="/admin/users/all/update">Cập
@@ -339,6 +342,7 @@
                                                 <th scope="col">FullName</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Monney</th>
+                                                <th scope="col">Tài khoản admin</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -351,21 +355,22 @@
                                                 <td id="fullname-{{id}}">{{fullname}}</td>
                                                 <td id="email-{{id}}">{{email}}</td>
                                                 <td id="money-{{id}}">{{money}}</td>
+                                                <td id="type-{{id}}">{{type}}</td>
                                                 <td>
                                                     <a type="button" class="text-secondary" data-toggle="modal"
                                                         data-target="#editModal"><i class="fa fa-edit"
                                                             onclick="func{{id}}()"></i></a>
                                                     <script>
                                                         function func{{id}} () {
-                                                            console.log("tuytuy");
                                                             document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
                                                             document.getElementById("update-username").value = document.getElementById("username-{{id}}").innerHTML;
                                                             document.getElementById("update-password").value = document.getElementById("password-{{id}}").innerHTML;
                                                             document.getElementById("update-fullname").value = document.getElementById("fullname-{{id}}").innerHTML;
                                                             document.getElementById("update-email").value = document.getElementById("email-{{id}}").innerHTML;
                                                             document.getElementById("update-money").value = document.getElementById("money-{{id}}").innerHTML;
+                                                            document.getElementById("update-type").value = document.getElementById("type-{{id}}").innerHTML;
                                                         }
-                                                        
+
                                                     </script>
 
                                                 </td>
@@ -384,13 +389,14 @@
                                     <li class="page-item disabled">
                                         <span class="page-link">Previous</span>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active">
                                         <span class="page-link">
-                                            2
-                                            <span class="sr-only">(current)</span>
+                                            1
+                                            <span
+                                                class="sr-only">(current)</span>
                                         </span>
                                     </li>
+                                    <li class="page-item"><a class="page-link" href="#">2 </a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="#">Next</a>

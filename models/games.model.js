@@ -5,6 +5,10 @@ module.exports = {
     var sql = "select * from games";
     return db.load(sql);
   },
+  allGameOfACategory: idCategory => {
+    var sql = `select * from games g where g.idcategory = ${idCategory}`;
+    return db.load(sql);
+  },
   allWithDeltal: () => {
     var sql =
       "select g.id,g.name,c.name category, amount,content, price,saleoff,configuration from games g,categoeies c where g.idcategory=c.id";
