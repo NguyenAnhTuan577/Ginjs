@@ -35,10 +35,9 @@
                                 </span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/products/all">Tất cả</a></li>
-                                <li><a href="/admin/products/all">Hành động</a></li>
-                                <li><a href="/admin/products/all">Trí tuệ</a></li>
-                                <li><a href="/admin/products/all">Thể thao</a></li>
-                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
+                                {{#each lcCategories}}
+                                    <li><a href="/admin/products/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
 
@@ -52,8 +51,8 @@
                                     người dùng</span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/users/all">Tất cả</a></li>
-                                <li><a href="/admin/users/all">Người dùng</a></li>
-                                <li><a href="/admin/users/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/clients">Người dùng</a></li>
+                                <li><a href="/admin/users/admins">Người Quản lý</a></li>
                             </ul>
                         </li>
 
@@ -236,57 +235,161 @@
             </div>
         </div>
         <!-- header area end -->
+        {{!-- modal Them --}}
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm game</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                                <label for="idcategory" class="col-form-label">IDCategory:</label>
+                                <input type="text" class="form-control" name="idcategory" id="idcategory">
+                                <label for="price" class="col-form-label">Price:</label>
+                                <input type="text" class="form-control" name="price" id="price">
+                                <label for="saleoff" class="col-form-label">SaleOff:</label>
+                                <input type="text" class="form-control" name="saleoff" id="saleoff">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary"
+                                formaction="/admin/products/all/add">Thêm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- Modal Sua --}}
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết game</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="update-id" class="col-form-label">ID:</label>
+                                <input type="text" class="form-control" name="id" id="update-id" readonly>
+                                <label for="update-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="update-name">
+                                <label for="update-idcategory" class="col-form-label">IDCategory:</label>
+                                <input type="text" class="form-control" name="idcategory" id="update-idcategory">
+                                <label for="update-price" class="col-form-label">Price:</label>
+                                <input type="text" class="form-control" name="price" id="update-price">
+                                <label for="update-saleoff" class="col-form-label">SaleOff:</label>
+                                <input type="text" class="form-control" name="saleoff" id="update-saleoff">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary" formaction="/admin/products/all/update">Cập
+                                nhật</button>
+                            <button type="submit" class="btn btn-danger"
+                                formaction="/admin/products/all/delete">Xóa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- page title area end -->
-<div class="main-content-inner">
-    <div class="row">
+        <div class="main-content-inner">
+            <div class="row">
 
-        <!-- Striped table start -->
-        <div class="col-12 mt-5">
-            <div class="card">
-                <div class="card-body">
-                    {{!-- <h4 class="header-title">Striped Rows</h4> --}}
-                    <div class="single-table">
-                        <div class="table-responsive">
-                            <table class="table table-striped text-center">
-                                <thead class="text-uppercase">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">IdCategory</th>
-                                        <th scope="col">price</th>
-                                        <th scope="col">saleoff</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   {{#each this.products}}
-                                        <tr>
-                                        <th scope="row">{{id}}</th>
-                                        <td>{{name}}</td>
-                                        <td>{{idcategory}}</td>
-                                        <td>{{price}}</td>
-                                        <td>{{saleoff}}</td>
-                                        <td>
-                                            <ul class="d-flex justify-content-center">
-                                                <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                            class="fa fa-edit"></i></a></li>
-                                                <li><a href="#" class="text-danger"><i class="ti-trash"></i></a></li>
-                                            </ul>
-                                        </td>
-                                        </tr>
+                <!-- Striped table start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
 
-                                   {{/each}}
-                                </tbody>
-                            </table>
+                        <div class="card-header" style="display: inline">
+
+                            <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal"
+                                data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus"
+                                    aria-hidden="true"></i>Thêm game</button>
+                        </div>
+                        <div class="card-body">
+                            {{!-- <h4 class="header-title">Striped Rows</h4> --}}
+                            <div class="single-table">
+                                <div class="table-responsive">
+                                    <table class="table table-striped text-center">
+                                        <thead class="text-uppercase">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">IdCategory</th>
+                                                <th scope="col">price</th>
+                                                <th scope="col">saleoff</th>
+                                                <th scope="col">action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each this.products}}
+                                            <tr>
+                                                <th scope="row" id="id-{{id}}">{{id}}</th>
+                                                <td id="name-{{id}}">{{name}}</td>
+                                                <td id="idcategory-{{id}}">{{idcategory}}</td>
+                                                <td id="price-{{id}}">{{price}}</td>
+                                                <td id="saleoff-{{id}}">{{saleoff}}</td>
+                                                <td>
+                                                    <a type="button" class="text-secondary" data-toggle="modal"
+                                                        data-target="#editModal"><i class="fa fa-edit"
+                                                            onclick="func{{id}}()"></i></a>
+                                                    <script>
+                                                        function func{{id}} () {
+                                                            document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
+                                                            document.getElementById("update-name").value = document.getElementById("name-{{id}}").innerHTML;
+                                                            document.getElementById("update-idcategory").value = document.getElementById("idcategory-{{id}}").innerHTML;
+                                                            document.getElementById("update-price").value = document.getElementById("price-{{id}}").innerHTML;
+                                                            document.getElementById("update-saleoff").value = document.getElementById("saleoff-{{id}}").innerHTML;
+                                                        }
+
+                                                    </script>
+
+                                                </td>
+                                            </tr>
+
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Striped table end -->
+                        <div class="card-footer">
+                            <nav aria-label="..." class="float-right">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Previous</span>
+                                    </li>
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            1
+                                            <span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Striped table end -->
-        
-    </div>
-</div>
     </div>
     <!-- main content area end -->
     <!-- footer area start-->

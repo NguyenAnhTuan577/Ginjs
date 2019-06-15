@@ -35,10 +35,9 @@
                                 </span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/products/all">Tất cả</a></li>
-                                <li><a href="/admin/products/all">Hành động</a></li>
-                                <li><a href="/admin/products/all">Trí tuệ</a></li>
-                                <li><a href="/admin/products/all">Thể thao</a></li>
-                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
+                                {{#each lcCategories}}
+                                <li><a href="/admin/products/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
 
@@ -52,8 +51,8 @@
                                     người dùng</span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/users/all">Tất cả</a></li>
-                                <li><a href="/admin/users/all">Người dùng</a></li>
-                                <li><a href="/admin/users/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/clients">Người dùng</a></li>
+                                <li><a href="/admin/users/admins">Người Quản lý</a></li>
                             </ul>
                         </li>
 
@@ -239,20 +238,95 @@
             </div>
         </div>
         <!-- header area end -->
+        {{!-- modal Them --}}
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm người dùng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="username" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" name="username" id="username">
+                                <label for="password" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" name="password" id="password">
+                                <label for="fullname" class="col-form-label">Fullname:</label>
+                                <input type="text" class="form-control" name="fullname" id="fullname">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" name="email" id="email">
+                                <label for="money" class="col-form-label">Money:</label>
+                                <input type="text" class="form-control" name="money" id="money">
+                                <label for="type" class="col-form-label">Type:</label>
+                                <input type="text" class="form-control" name="type" id="type">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary"
+                                formaction="/admin/users/all/add">Thêm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- Modal Sua --}}
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết người dùng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="update-id" class="col-form-label">Id:</label>
+                                <input type="text" class="form-control" name="id" id="update-id" readonly>
+                                <label for="update-username" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" name="username" id="update-username">
+                                <label for="update-password" class="col-form-label">Password:</label>
+                                <input type="text" class="form-control" name="password" id="update-password">
+                                <label for="update-fullname" class="col-form-label">Fullname:</label>
+                                <input type="text" class="form-control" name="fullname" id="update-fullname">
+                                <label for="update-email" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" name="email" id="update-email">
+                                <label for="update-money" class="col-form-label">Money:</label>
+                                <input type="text" class="form-control" name="money" id="update-money">
+                                <label for="update-type" class="col-form-label">Type:</label>
+                                <input type="text" class="form-control" name="type" id="update-type">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary" formaction="/admin/users/all/update">Cập
+                                nhật</button>
+                            <button type="submit" class="btn btn-danger"
+                                formaction="/admin/users/all/delete">Xóa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- page title area end -->
         <div class="main-content-inner">
             <div class="row">
-                {{!-- ahihi --}}
 
                 <!-- Striped table start -->
                 <div class="col-12 mt-5">
                     <div class="card">
+
                         <div class="card-header" style="display: inline">
-                            <h2 style="float:left">Sản phẩm</h2>
-                            <button onclick="window.location.href='javascript:;"
-                                class="add-product btn btn-primary bg-green float-right"> <i class="fa fa-plus"
-                                    aria-hidden="true"></i> Thêm sản phẩm</button>
+
+                            <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal"
+                                data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus"
+                                    aria-hidden="true"></i>Thêm người dùng</button>
                         </div>
                         <div class="card-body">
                             {{!-- <h4 class="header-title">Striped Rows</h4> --}}
@@ -268,25 +342,37 @@
                                                 <th scope="col">FullName</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Monney</th>
+                                                <th scope="col">Tài khoản admin</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {{#each this.users}}
                                             <tr>
-                                                <th scope="row">{{id}}</th>
-                                                <td>{{username}}</td>
-                                                <td>{{password}}</td>
-                                                <td>{{fullname}}</td>
-                                                <td>{{email}}</td>
-                                                <td>{{money}}</td>
+                                                <th scope="row" id="id-{{id}}">{{id}}</th>
+                                                <td id="username-{{id}}">{{username}}</td>
+                                                <td id="password-{{id}}">{{password}}</td>
+                                                <td id="fullname-{{id}}">{{fullname}}</td>
+                                                <td id="email-{{id}}">{{email}}</td>
+                                                <td id="money-{{id}}">{{money}}</td>
+                                                <td id="type-{{id}}">{{type}}</td>
                                                 <td>
-                                                    <ul class="d-flex justify-content-center">
-                                                        <li class="mr-3"><a href="#" class="text-secondary"><i
-                                                                    class="fa fa-edit"></i></a></li>
-                                                        <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
-                                                        </li>
-                                                    </ul>
+                                                    <a type="button" class="text-secondary" data-toggle="modal"
+                                                        data-target="#editModal"><i class="fa fa-edit"
+                                                            onclick="func{{id}}()"></i></a>
+                                                    <script>
+                                                        function func{{id}} () {
+                                                            document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
+                                                            document.getElementById("update-username").value = document.getElementById("username-{{id}}").innerHTML;
+                                                            document.getElementById("update-password").value = document.getElementById("password-{{id}}").innerHTML;
+                                                            document.getElementById("update-fullname").value = document.getElementById("fullname-{{id}}").innerHTML;
+                                                            document.getElementById("update-email").value = document.getElementById("email-{{id}}").innerHTML;
+                                                            document.getElementById("update-money").value = document.getElementById("money-{{id}}").innerHTML;
+                                                            document.getElementById("update-type").value = document.getElementById("type-{{id}}").innerHTML;
+                                                        }
+
+                                                    </script>
+
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -296,19 +382,21 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Striped table end -->
                         <div class="card-footer">
                             <nav aria-label="..." class="float-right">
                                 <ul class="pagination">
                                     <li class="page-item disabled">
                                         <span class="page-link">Previous</span>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active">
                                         <span class="page-link">
-                                            2
-                                            <span class="sr-only">(current)</span>
+                                            1
+                                            <span
+                                                class="sr-only">(current)</span>
                                         </span>
                                     </li>
+                                    <li class="page-item"><a class="page-link" href="#">2 </a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="#">Next</a>
@@ -318,10 +406,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- Striped table end -->
-
             </div>
         </div>
+        {{!-- ahihi --}}
     </div>
     <!-- main content area end -->
     <!-- footer area start-->

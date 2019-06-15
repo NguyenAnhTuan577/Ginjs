@@ -35,10 +35,9 @@
                                 </span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/products/all">Tất cả</a></li>
-                                <li><a href="/admin/products/all">Hành động</a></li>
-                                <li><a href="/admin/products/all">Trí tuệ</a></li>
-                                <li><a href="/admin/products/all">Thể thao</a></li>
-                                <li><a href="/admin/products/all">Phiêu lưu</a></li>
+                                {{#each lcCategories}}
+                                    <li><a href="/admin/products/{{id}}">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
 
@@ -52,8 +51,8 @@
                                     người dùng</span></a>
                             <ul class="collapse">
                                 <li><a href="/admin/users/all">Tất cả</a></li>
-                                <li><a href="/admin/users/all">Người dùng</a></li>
-                                <li><a href="/admin/users/all">Người Quản lý</a></li>
+                                <li><a href="/admin/users/clients">Người dùng</a></li>
+                                <li><a href="/admin/users/admins">Người Quản lý</a></li>
                             </ul>
                         </li>
 
@@ -246,7 +245,7 @@
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    
+
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Thêm game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -266,7 +265,7 @@
                 </div>
             </div>
         </div>
-        {{!-- Mode Sua --}}
+        {{!-- Modal Sua --}}
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -288,7 +287,8 @@
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button type="submit" class="btn btn-danger" formaction="/admin/categories/all/delete">Xóa</button>
+                            <button type="submit" class="btn btn-danger"
+                                formaction="/admin/categories/all/delete">Xóa</button>
                         </form>
                     </div>
                 </div>
@@ -330,11 +330,12 @@
 
                                                         <li class="mr-3"><a type="button" class="text-secondary"
                                                                 data-toggle="modal" data-target="#editModal"><i
-                                                                    class="fa fa-edit" onclick="func{{id}}()"></i></a></li>
+                                                                    class="fa fa-edit" onclick="func{{id}}()"></i></a>
+                                                        </li>
                                                         <script>
 
-                                                            function func{{id}}() {
-                                                                
+                                                            function func{{id}} () {
+
                                                                 document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
                                                                 document.getElementById("update-name").value = document.getElementById("name-{{id}}").innerHTML;
                                                             }
@@ -356,13 +357,14 @@
                                     <li class="page-item disabled">
                                         <span class="page-link">Previous</span>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active">
                                         <span class="page-link">
-                                            2
+                                            1
                                             <span class="sr-only">(current)</span>
                                         </span>
                                     </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="#">Next</a>

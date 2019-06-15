@@ -3,8 +3,20 @@ module.exports = {
   all: () => {
     return db.load("select * from Accounts");
   },
-  add: entity => {
-    return db.add("Accounts", entity);
+  clients: () => {
+    return db.load("select * from Accounts where type=false");
+  },
+  admins: () => {
+    return db.load("select * from Accounts where type=true");
+  },
+  add: object => {
+    return db.add("accounts", object);
+  },
+  update: object => {
+    return db.update("accounts", object);
+  },
+  delete: id => {
+    return db.delete("accounts", "id", id);
   },
   login: (username, password) => {
     return db.load(
