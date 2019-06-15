@@ -246,7 +246,7 @@
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    
+
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Thêm game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -266,7 +266,7 @@
                 </div>
             </div>
         </div>
-        {{!-- Mode Sua --}}
+        {{!-- Modal Sua --}}
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -288,7 +288,8 @@
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
-                            <button type="submit" class="btn btn-danger" formaction="/admin/categories/all/delete">Xóa</button>
+                            <button type="submit" class="btn btn-danger"
+                                formaction="/admin/categories/all/delete">Xóa</button>
                         </form>
                     </div>
                 </div>
@@ -330,11 +331,12 @@
 
                                                         <li class="mr-3"><a type="button" class="text-secondary"
                                                                 data-toggle="modal" data-target="#editModal"><i
-                                                                    class="fa fa-edit" onclick="func{{id}}()"></i></a></li>
+                                                                    class="fa fa-edit" onclick="func{{id}}()"></i></a>
+                                                        </li>
                                                         <script>
 
-                                                            function func{{id}}() {
-                                                                
+                                                            function func{{id}} () {
+
                                                                 document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
                                                                 document.getElementById("update-name").value = document.getElementById("name-{{id}}").innerHTML;
                                                             }
