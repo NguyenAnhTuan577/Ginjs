@@ -10,8 +10,12 @@ router.get("/", async (req, res) => {
   var images;
   var tags;
   await Promise.all([
-    (images = await gamesmodel.allImagesOfGame(game.id)),
-    (tags = await gamesmodel.allTagsOfGame(game.id))
+    gamesmodel.allImagesOfGame(game.id).then(data => {
+      images = data;
+    }),
+    gamesmodel.allTagsOfGame(game.id).then(data => {
+      tags = data;
+    })
   ]);
 
   // console.log(game);

@@ -54,6 +54,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log("chạy thôi: https://localhost:3000");
+console.log("chạy thôi: http://localhost:3000");
 
 module.exports = app;

@@ -1,47 +1,49 @@
 <div class="container">
     <div class="row">
         <div class="col-md-7">
-            <div class="billing-details">
-                <div class="section-title">
-                    <h3 class="title">Tạo tài khoản mới</h3>
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="first-name" placeholder="Nhập tên của bạn">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="last-name" placeholder="Nhập Họ và tên lót">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="email" name="email" placeholder="Thư điện tử">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="address" placeholder="Địa chỉ">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="city" placeholder="Thành phố">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="country" placeholder="Quốc gia">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="text" name="zip-code" placeholder="Mã Zip">
-                </div>
-                <div class="form-group">
-                    <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
-                </div>
-                <div class="form-group">
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="terms">
-                            <label for="terms">
-                                <span></span>
-                                Tôi đã đọc và đồng ý <a href="#">các điều khoản và chính sách</a>
-                            </label>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <a href="#" class="primary-btn order-submit">Tiếp Tục</a>
-                </div>
+            <div class="section-title">
+                <h3 class="title">Tạo tài khoản mới</h3>
             </div>
+            <form class="billing-details" method="POST">
+
+                <div class="form-group">
+                    <input class="input" type="text" name="username" placeholder="tên đăng nhập" required>
+                </div>
+                <div class="form-group">
+                    <input class="input" id="password" type="password" name="password" placeholder="mật khẩu" required>
+                </div>
+                <div class="form-group">
+                    <input class="input" oninput="check(this)" type="password" placeholder="nhập lại mật khẩu" required>
+                </div>
+                <script language='javascript' type='text/javascript'>
+                    function check(input) {
+                        if (input.value != document.getElementById('password').value) {
+                            input.setCustomValidity('Password chưa chính xác!!!');
+                        } else {
+                            // input is valid -- reset the error message
+                            input.setCustomValidity('');
+                        }
+                    }
+                </script>
+                <div class="form-group">
+                    <input class="input" type="text" name="fullname" placeholder="Nhập Họ và tên lót" required>
+                </div>
+                <div class="form-group">
+                    <input class="input" type="email" name="email" placeholder="Thư điện tử" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            <span></span>
+                            Tôi đã đọc và đồng ý <a href="#">các điều khoản và chính sách</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="primary-btn order-submit" type="submit">Tiếp Tục</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
