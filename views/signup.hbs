@@ -1,19 +1,24 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+{{/section}}
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-7">
             <div class="section-title">
                 <h3 class="title">Tạo tài khoản mới</h3>
             </div>
-            <form class="billing-details" method="POST">
+            <form novalidate class="billing-details" method="POST" id="registerForm">
 
                 <div class="form-group">
-                    <input class="input" type="text" name="username" placeholder="tên đăng nhập" required>
+                    <input class="input" type="text" name="username" placeholder="tên đăng nhập">
                 </div>
                 <div class="form-group">
-                    <input class="input" id="password" type="password" name="password" placeholder="mật khẩu" required>
+                    <input class="input" id="password" type="password" name="password" placeholder="mật khẩu">
                 </div>
                 <div class="form-group">
-                    <input class="input" oninput="check(this)" type="password" placeholder="nhập lại mật khẩu" required>
+                    <input class="input" oninput="check(this)" type="password" placeholder="nhập lại mật khẩu">
                 </div>
                 <script language='javascript' type='text/javascript'>
                     function check(input) {
@@ -26,10 +31,10 @@
                     }
                 </script>
                 <div class="form-group">
-                    <input class="input" type="text" name="fullname" placeholder="Nhập Họ và tên lót" required>
+                    <input class="input" type="text" name="fullname" placeholder="Nhập Họ và tên lót">
                 </div>
                 <div class="form-group">
-                    <input class="input" type="email" name="email" placeholder="Thư điện tử" required>
+                    <input class="input" type="email" name="email" placeholder="Thư điện tử">
                 </div>
                 <div class="form-group">
                     <div class="input-checkbox">

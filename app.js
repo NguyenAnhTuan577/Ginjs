@@ -1,11 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var createError = require("http-errors");
+var express = require("express");
+var exphbs = require("express-handlebars");
+var hbssection = require("express-handlebars-sections");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
 
-var indexRouter = require('./routes/index.route');
-var usersRouter = require('./routes/users.route');
+var indexRouter = require("./routes/index.route");
+var usersRouter = require("./routes/users.route");
 
 var app = express();
 // them tam
@@ -18,25 +20,33 @@ var app = express();
 
 // console.log("chay cchua");
 
-
-
 // view engine setups
-app.set('views', path.join(__dirname, 'views'));
-app.set('view options', { layout: '_layouts/layout' });
-app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view options', { layout: '_layouts/layout' });
+app.engine(
+  "hbs",
+  exphbs({
+    defaultLayout: "layout.hbs",
+    layoutsDir: "views/_layouts",
+    helpers: {
+      section: hbssection()
+    }
+  })
+);
+app.set("view engine", "hbs");
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-//index---------------------------------------------- 
-app.use('/', indexRouter);
+app.use(express.static(path.join(__dirname, "public")));
+//index----------------------------------------------
+app.use("/", indexRouter);
 
 //user-----------------------------------------------
-app.use('/users', usersRouter);
+app.use("/users", usersRouter);
 
 // them cho admin
-app.use('/admin',require("./routes/admin/admin.route"));
+app.use("/admin", require("./routes/admin/admin.route"));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,11 +57,11 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 console.log("chạy thôi: http://localhost:3000");

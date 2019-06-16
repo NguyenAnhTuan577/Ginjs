@@ -13,7 +13,7 @@ router.get("/all", (req, res) => {
     p.then(rows=>{
         console.log(rows);
         res.render('vProducts/all',{
-            layout:'_layouts/layout_admin',products:rows
+            layout:'layout_admin.hbs',products:rows
         });
     })
 });
@@ -26,7 +26,7 @@ router.get("/:id", (req, res) => {
       p.then(rows=>{
           console.log(rows);
           res.render('vProducts/all',{
-              layout:'_layouts/layout_admin',products:rows
+              layout:'layout_admin.hbs',products:rows
           });
       })
   });

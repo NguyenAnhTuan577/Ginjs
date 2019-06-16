@@ -14,7 +14,7 @@ router.get('/all', (req, res) => {
     p.then(rows => {
         // console.log(rows);
         res.render('vCategories/all', {
-            layout: '_layouts/layout_admin', categories: rows
+            layout: 'layout_admin.hbs', categories: rows
         });
     })
 });

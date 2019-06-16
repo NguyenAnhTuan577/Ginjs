@@ -13,7 +13,7 @@ router.get('/all',(req,res)=>{
     p.then(rows=>{
         console.log(rows);
         res.render('vUser/all',{
-            layout:'_layouts/layout_admin',users:rows
+            layout:'layout_admin.hbs',users:rows
         });
     })
 });
@@ -25,7 +25,7 @@ router.get('/clients',(req,res)=>{
     p.then(rows=>{
         console.log(rows);
         res.render('vUser/all',{
-            layout:'_layouts/layout_admin',users:rows
+            layout:'layout_admin.hbs',users:rows
         });
     })
 });
@@ -37,7 +37,7 @@ router.get('/admins',(req,res)=>{
     p.then(rows=>{
         console.log(rows);
         res.render('vUser/all',{
-            layout:'_layouts/layout_admin',users:rows
+            layout:'layout_admin.hbs',users:rows
         });
     })
 });
