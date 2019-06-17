@@ -9,9 +9,11 @@ module.exports = {
     var sql = `select * from games g where g.idcategory = ${idCategory}`;
     return db.load(sql);
   },
-  allWithDeltal: () => {
-    var sql =
-      "select g.id,g.name,c.name category, amount,content, price,saleoff,configuration from games g,categoeies c where g.idcategory=c.id";
+  allWithDeltal: (limit, fieldOrder) => {
+    var sql = `select g.id, g.name, c.name category, g.idcategory, amount, price, saleoff, t.image
+      from games g,categories c, (select idgame,max(linkimage) as image from game_image group by idgame) as t
+      where g.idcategory=c.id and g.id=t.idgame
+      order by ${fieldOrder} desc limit ${limit} `;
     return db.load(sql);
   },
 
@@ -34,6 +36,18 @@ module.exports = {
   },
   allTagsOfGame: id => {
     var sql = `select t.* from Games_Tags gt,Tags t where gt.idgame=${id} and gt.idTag=t.id`;
+    return db.load(sql);
+  },
+  pageByCat: (idcat, offset, limit) => {
+    var sql = `select g.id, g.name, c.name category, g.idcategory, amount, price, saleoff, t.image
+      from games g,categories c, (select idgame,max(linkimage) as image from game_image group by idgame) as t
+      where g.idcategory=c.id and g.id=t.idgame and g.idcategory=${idcat}
+      limit ${limit} offset ${offset}`;
+    return db.load(sql);
+  },
+  
+  numOfPgae: idcat => {
+    var sql = `select count(*) as num from games where idcategory=${idcat}`;
     return db.load(sql);
   }
 };

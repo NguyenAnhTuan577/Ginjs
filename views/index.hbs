@@ -51,7 +51,6 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -62,21 +61,79 @@
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
-                    <h3 class="title">SẢN PHẨM MỚI</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a href="/danh-sach-san-pham-theo-loai">Hành động</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Chiến thuật</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Đua xe</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Thể thao</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Trí tuệ</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Giả lập</a></li>
-                            {{!-- <li class="active"><a data-toggle="tab" href="#tab1">Máy tính</a></li>
-                            <li><a  data-toggle="tab" href="#tab1">Điện thoại</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Máy ảnh</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Phụ kiện</a></li> --}}
-                        </ul>
+                    <h3 class="title">Game bán chạy</h3>
+
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+                        <div id="tab2" class="tab-pane fade in active">
+                            <div class="products-slick" data-nav="#slick-nav-2">
+                                {{#each gamesRun}}
+                                <!-- product -->
+                                <div class="product" onclick="window.location='/xem-chi-tiet?id={{id}}';">
+                                    <div style="height: 350px;display: flex;" class="product-img">
+                                        <img src="{{image}}" alt="" class="img-fluid">
+                                        <div class="product-label">
+                                            <span class="sale">-{{saleoff}}%</span>
+                                            <span class="new">NEW</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div style="height: 300px" class="product-img">
+                                        <img  src="{{image}}" alt="" class="img-fluid">
+                                        <div class="product-label">
+                                            <span class="sale">-{{saleoff}}%</span>
+                                            <span class="new">NEW</span>
+                                        </div>
+                                    </div> -->
+                                    <div class="product-body">
+                                        <p class="product-category"
+                                            onclick="window.location='/danh-sach-san-pham-theo-loai?id={{idcategory}}';">
+                                            {{category}}</p>
+                                        <h3 class="product-name">{{name}}</h3>
+                                        <h4 class="product-price">{{priceReal}} <del
+                                                class="product-old-price">{{price}}</del>
+                                        </h4>
+
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                            cart</button>
+                                    </div>
+                                </div>
+                                <!-- /product -->
+                                {{/each}}
+
+                            </div>
+                            <div id="slick-nav-2" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab -->
                     </div>
+                </div>
+            </div>
+            <!-- /Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2 class="title">Game giảm giá</h2>
                 </div>
             </div>
             <!-- /section title -->
@@ -88,41 +145,30 @@
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
+                                {{#each gamesSale}}
                                 <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product01.png" alt="">
+                                <div class="product" onclick="window.location='/xem-chi-tiet?id={{id}}';">
+                                    <div style="height: 350px;display: flex;" class="product-img">
+                                        <img src="{{image}}" alt="" class="img-fluid">
                                         <div class="product-label">
-                                            <span class="sale">-30%</span>
+                                            <span class="sale">-{{saleoff}}%</span>
                                             <span class="new">NEW</span>
                                         </div>
                                     </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product02.png" alt="">
+                                    <!-- <div style="height: 300px" class="product-img">
+                                        <img  src="{{image}}" alt="" class="img-fluid">
                                         <div class="product-label">
+                                            <span class="sale">-{{saleoff}}%</span>
                                             <span class="new">NEW</span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
+                                        <p class="product-category"
+                                            onclick="window.location='/danh-sach-san-pham-theo-loai?id={{idcategory}}';">
+                                            {{category}}</p>
+                                        <h3 class="product-name">{{name}}</h3>
+                                        <h4 class="product-price">{{priceReal}} <del
+                                                class="product-old-price">{{price}}</del>
                                         </h4>
 
                                     </div>
@@ -132,72 +178,7 @@
                                     </div>
                                 </div>
                                 <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product03.png" alt="">
-                                        <div class="product-label">
-                                            <span class="sale">-30%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body" onclick="window.location='/xem-chi-tiet';">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product04.png" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product05.png" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
+                                {{/each}}
                             </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
@@ -212,6 +193,7 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+
 
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal" class="section">
@@ -252,161 +234,14 @@
                     <a class="primary-btn cta-btn" href="#">Shop now</a>
                 </div>
             </div>
+
+
         </div>
         <!-- /row -->
     </div>
     <!-- /container -->
 </div>
 <!-- /HOT DEAL SECTION -->
-
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- section title -->
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h3 class="title">Game bán chạy</h3>
-                    <div class="section-nav">
-                        <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a href="/danh-sach-san-pham-theo-loai">Hành động</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Chiến thuật</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Đua xe</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Thể thao</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Trí tuệ</a></li>
-                            <li><a href="/danh-sach-san-pham-theo-loai">Giả lập</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /section title -->
-
-            <!-- Products tab & slick -->
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="products-tabs">
-                        <!-- tab -->
-                        <div id="tab2" class="tab-pane fade in active">
-                            <div class="products-slick" data-nav="#slick-nav-2">
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product06.png" alt="">
-                                        <div class="product-label">
-                                            <span class="sale">-30%</span>
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product07.png" alt="">
-                                        <div class="product-label">
-                                            <span class="new">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product08.png" alt="">
-                                        <div class="product-label">
-                                            <span class="sale">-30%</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product09.png" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product" onclick="window.location='/xem-chi-tiet';">
-                                    <div class="product-img">
-                                        <img src="./images/product01.png" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <p class="product-category">Category</p>
-                                        <h3 class="product-name">product name goes here</h3>
-                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del>
-                                        </h4>
-
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                            cart</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-                            </div>
-                            <div id="slick-nav-2" class="products-slick-nav"></div>
-                        </div>
-                        <!-- /tab -->
-                    </div>
-                </div>
-            </div>
-            <!-- /Products tab & slick -->
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
 
 <!-- SECTION -->
 <div class="section">
