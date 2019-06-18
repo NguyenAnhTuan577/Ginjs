@@ -45,9 +45,38 @@ module.exports = {
       limit ${limit} offset ${offset}`;
     return db.load(sql);
   },
-  
+
   numOfPgae: idcat => {
     var sql = `select count(*) as num from games where idcategory=${idcat}`;
+    return db.load(sql);
+  },
+  allWithQuery: (categories, tags, min, max) => {
+    var sql = `select distinct g.id, g.name, c.name category, g.idcategory, amount, price, saleoff, i.image
+    from games g,categories c,games_tags gt,tags t, (select idgame,max(linkimage) as image from game_image group by idgame) as i
+    where g.idcategory=c.id and g.id = i.idgame and t.id=gt.idtag and gt.idgame=g.id `;
+    //   var values = Object.keys(object).map((key) => {
+    //     return object[key];
+    // });
+    // console.log(categories);
+    if (categories && categories.length) {
+      sql += `and (`;
+      categories.forEach(c => {
+        sql += ` c.id = ${c} or`;
+      });
+      sql = sql.substr(0, sql.length - 3);
+      sql += `)`;
+    }
+    // console.log(tags);
+    if (tags && tags.length) {
+      sql += `and (`;
+      tags.forEach(t => {
+        sql += ` t.id = ${t} or`;
+      });
+      sql = sql.substr(0, sql.length - 3);
+      sql += `)`;
+    }
+    sql += `and price between ${min} and ${max}`;
+    console.log(sql);
     return db.load(sql);
   }
 };

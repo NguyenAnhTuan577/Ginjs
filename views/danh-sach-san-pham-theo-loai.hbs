@@ -10,13 +10,38 @@
 				<form method="GET">
 					<!-- aside Widget -->
 					<div class="aside">
+						<h3 class="aside-title">Thể loại</h3>
+						<div class="checkbox-filter">
+							{{#each categories }}
+							<div class="input-checkbox">
+								<input type="checkbox" name="categories" id="category-{{id}}" value="{{id}}">
+								<label for="category-{{id}}">
+									<span></span>
+									{{name}}
+									<small>({{num}})</small>
+								</label>
+							</div>
+							{{/each}}
+							{{!-- <div class="input-checkbox">
+							<input type="checkbox" id="category-1">
+							<label for="category-1">
+								<span></span>
+								Máy tính
+								<small>(120)</small>
+							</label>
+						</div> --}}
+
+						</div>
+					</div>
+					<!-- /aside Widget -->
+					<!-- aside Widget -->
+					<div class="aside">
 						<h3 class="aside-title">Chuyên mục</h3>
 						<div class="checkbox-filter">
 							{{#each tags }}
-
 							<div class="input-checkbox">
-								<input type="checkbox" name="tag" id="category-{{id}}" value="{{id}}">
-								<label for="category-{{id}}">
+								<input type="checkbox" name="tags" id="tag-{{id}}" value="{{id}}">
+								<label for="tag-{{id}}">
 									<span></span>
 									{{name}}
 									<small>({{num}})</small>
@@ -42,13 +67,13 @@
 						<div class="price-filter">
 							<div id="price-slider"></div>
 							<div class="input-number price-min">
-								<input id="price-min" type="number" name="pmin">
+								<input id="price-min" type="number" name="min">
 								<span class="qty-up">+</span>
 								<span class="qty-down">-</span>
 							</div>
 							<span>-</span>
 							<div class="input-number price-max">
-								<input id="price-max" type="number" name="pmax">
+								<input id="price-max" type="number" name="max">
 								<span class="qty-up">+</span>
 								<span class="qty-down">-</span>
 							</div>
@@ -56,12 +81,12 @@
 					</div>
 					<!-- /aside Widget -->
 					<div class="aside" style="display: flex;justify-content: center;">
-						<button class="btn btn-danger" type="submit">tìm kiếm</button>
+						<button class="primary-btn cta-btn" type="submit" formaction="/tim-kiem">tìm kiếm</button>
 					</div>
 
 				</form>
 				<!--/form -->
-				<!-- aside Widget -->
+				{{!-- <!-- aside Widget -->
 				<div class="aside">
 					<h3 class="aside-title">Bán chạy nhất</h3>
 					<div class="product-widget">
@@ -97,7 +122,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- /aside Widget -->
+				<!-- /aside Widget --> --}}
 			</div>
 			<!-- /ASIDE -->
 
@@ -109,7 +134,7 @@
 					{{#each games}}
 					<!-- product -->
 					<div class="col-md-4 col-xs-6">
-						<div class="product">
+						<div class="product" onclick="window.location='/xem-chi-tiet?id={{id}}';">
 							<div style="height: 350px;display: flex;" class="product-img">
 								<img src="{{image}}" alt="ảnh game" class="img-fluid">
 								<div class="product-label">

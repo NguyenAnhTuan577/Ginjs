@@ -1,9 +1,11 @@
-var express = require("express");
 var gamesmodel = require("../models/games.model");
-var router = express.Router();
+var numeral = require("numeral");
 
-router.get("/", async (req, res) => {
-  var g = await gamesmodel.singleWithDeltal(2);
+module.exports = async (req, res) => {
+  var id = req.query.id || 1;
+  if (id < 1) id = 1;
+
+  var g = await gamesmodel.singleWithDeltal(id);
   var game = g[0];
   //   var images = await gamesmodel.allImagesOfGame(game.id);
   //   var tags = await gamesmodel.allTagsOfGame(game.id);
@@ -24,7 +26,8 @@ router.get("/", async (req, res) => {
   //     console.log("\n\n" + t.name);
   //   }
   console.log(tags);
-  game.sale = (game.price * game.saleoff) / 100;
+  game.sale = numeral((game.price * game.saleoff) / 100).format("0,0");
+  game.price = numeral(game.price).format("0,0");
   console.log(game);
 
   res.render("xem-chi-tiet", {
@@ -34,6 +37,4 @@ router.get("/", async (req, res) => {
     images,
     tags
   });
-});
-
-module.exports = router;
+};
