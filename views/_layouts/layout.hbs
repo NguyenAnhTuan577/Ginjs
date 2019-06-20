@@ -69,7 +69,7 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="/" class="logo">
-                                <img src="./images/logo.png" alt="">
+                                <img src="/images/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -105,16 +105,22 @@
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
                             <!-- Wishlist -->
-                            <div>
-                                <a href="/">
-                                    <i class="fas fa-box    "></i>
+                            <div style="display: flex">
+                                <a href="/user/lib">
+                                    <i class="fas fa-box "></i>
                                     <span>Game của bạn</span>
                                 </a>
+                                <a href="/user/cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Giỏ hàng</span>
+                                    <div class="qty">3</div>
+                                </a>
                             </div>
+
                             <!-- /Wishlist -->
 
                             <!-- Cart -->
-                            <div class="dropdown">
+                            {{!-- <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Giỏ hàng</span>
@@ -153,7 +159,7 @@
                                         <a href="/">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- /Cart -->
 
                             <!-- Menu Toogle -->

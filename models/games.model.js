@@ -78,5 +78,27 @@ module.exports = {
     sql += `and price between ${min} and ${max}`;
     console.log(sql);
     return db.load(sql);
-  }
+  },
+  gameInCart: idUser=>{
+    var sql=`select distinct g.*,image 
+    from games g, Accounts a, gameincart gc , (select idgame,max(linkimage) as image from game_image group by idgame) as i
+    where g.id=gc.idgame and gc.idaccount = ${idUser} and g.id=i.idgame`
+    return db.load(sql);
+  },
+  gameinLib: idUser=>{
+    var sql=`select distinct g.*,image 
+    from games g, Accounts a, PaidGame pg , (select idgame,max(linkimage) as image from game_image group by idgame) as i
+    where g.id=pg.idgame and pg.idaccount = ${idUser} and g.id=i.idgame`
+    return db.load(sql);
+  },
+  countInLib: idUser=>{
+    var sql=`select count(*) num
+    from PaidGame pg
+    where idaccount=${idUser}`
+    return db.load(sql);
+  },
+
+  deleteGameIncart: (entity)=>{
+    return db.delete("gameincart",entity)
+  } 
 };

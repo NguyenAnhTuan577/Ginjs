@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index.route");
-var usersRouter = require("./routes/users.route");
+var usersRouter = require("./routes/user.route");
 
 var app = express();
 // them tam
@@ -39,11 +39,13 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+//mdw-----------
+app.use(require("./middlewares/index.mdw"));
 //index----------------------------------------------
 app.use("/", indexRouter);
 
 //user-----------------------------------------------
-app.use("/users", usersRouter);
+app.use("/user", usersRouter);
 
 // them cho admin
 app.use("/admin", require("./routes/admin/admin.route"));
@@ -61,7 +63,10 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", {
+    title: "lỗi",
+    categories: res.locals.lcCategories
+  });
 });
 
 console.log("chạy thôi: http://localhost:3000");

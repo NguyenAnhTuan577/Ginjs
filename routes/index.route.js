@@ -5,7 +5,7 @@ var usermodel = require("../models/users.model");
 var gamesmodel = require("../models/games.model");
 
 //index------------------------------------------
-router.use(require("../middlewares/index.mdw"));
+
 router.get("/", require("../controllers/index.controller"));
 
 //xem chi tiet-------------------------------------

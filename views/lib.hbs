@@ -1,0 +1,48 @@
+<div class="section">
+    <div class="container">
+        <div>
+            <h3 class="font-weight-bold">số game của bạn: {{num}}</h3>
+
+        </div>
+        <div class="row mb-5">
+
+            <div class="col-md-12 site-blocks-table">
+                <table class="table table-hover table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="product-thumbnail">Hình ảnh</th>
+                            <th class="product-name">Thông tin</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each games}}
+                        <tr>
+                            <td class="product-thumbnail" style="width: 250px"><img src={{image}}
+                                    style="width: 100%;height: auto" alt="ảnh game"></td>
+                            <td class="product-name">
+                                <a href="/xem-chi-tiet?id={{id}}" class="font-weight-bold" style="font-size: 20px">
+                                    {{name}}</a>
+                                <div
+                                    style="display: flex;flex-direction: column;justify-content: space-between; height: 200px; margin-top: 5px">
+                                    <p>thông tin chi tiết game: <span><a href="/xem-chi-tiet?id={{id}}"> nhấn vào
+                                                đây</a></span></p>
+                                    <p> chơi game: <span> <a href="javascript:;" type="button"
+                                                class="primary-btn checkout">
+                                                PLAY</a></span></p>
+
+                                </div>
+
+
+
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

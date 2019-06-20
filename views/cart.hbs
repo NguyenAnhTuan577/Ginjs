@@ -1,0 +1,61 @@
+<div class="section">
+    <div class="container">
+        <div class="row mb-5">
+            <form class="col-md-12" method="post">
+                <div class="site-blocks-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Hình ảnh</th>
+                                <th class="product-name">Sản phẩm</th>
+                                <th class="product-price">Giá</th>
+                                <th class="product-quantity">Giá sau giảm</th>
+                                <th class="product-remove">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each games}}
+                            <tr>
+                                <td class="product-thumbnail" style="width: 250px"><img src={{image}}
+                                        style="width: 100%;height: auto" alt="ảnh game"></td>
+                                <td class="product-name"><a href="/xem-chi-tiet?id={{id}}">{{name}}</a></td>
+                                <td class="product-price">{{price}}</td>
+                                <td class="product-price">{{priceR}}</td>
+                                <td class="product-remove"><button type="submit" class="primary-btn" name="id" style="float:right" value="{{id}}"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button></td>
+                            </tr>
+                            {{/each}}
+                            <tr>
+                                <th class="product-thumbnail"></th>
+                                <th class="product-name">Thanh toán</th>
+                                <th class="product-price">₫{{total}}</th>
+                                <th class="product-quantity">₫{{totalR}}</th>
+                                <th class="product-remove"><a href="/thanh-toan?{{query}}"
+                                        class="primary-btn" style="float: right"><i class="fa fa-shopping-bag"
+                                            aria-hidden="true"></i></a></th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-7 mt-10">
+
+            <div class="row product-price">
+                <div class="col-md-12">
+                    <label class="text-black h4" for="coupon">Mã giảm giá</label>
+                    <p>Nhập mã giảm giá<br> nếu bạn có.</p>
+                </div>
+                <div class="col-md-8 mb-3 mb-md-0">
+                    <input type="text" class="form-control py-3" id="coupon" placeholder="Mã giảm giá">
+                </div>
+                <div class="col-md-4 ">
+                    <a href="#" class="primary-btn order-submit">Mã giảm giá</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

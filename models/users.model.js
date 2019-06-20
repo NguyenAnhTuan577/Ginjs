@@ -22,5 +22,8 @@ module.exports = {
     return db.load(
       `select * from accounts where username=${username} and password=${password}`
     );
+  },
+  single: (id)=>{
+    return db.load("select * from Accounts");
   }
 };
