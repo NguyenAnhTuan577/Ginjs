@@ -52,8 +52,15 @@
                     <li><a href="/"><i class="fa fa-map-marker"></i>123 Lý Thái Tổ, Quận 5, TPHCM</a></li>
                 </ul>
                 <ul class="header-links pull-right">
+                    {{#if user}}
+                    <li><a href="/tai-khoan"><i class="fa fa-user-o"></i>{{this.user.fullname}} </a></li>
+                    <li><a href="/dang-xuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+
+                    {{else}}
                     <li><a href="/dang-nhap"><i class="fa fa-user-o"></i> Đăng nhập</a></li>
                     <li><a href="/dang-ky"><i class="fas fa-sign-in-alt"></i> Đăng ký</a></li>
+
+                    {{/if}}
                 </ul>
             </div>
         </div>
@@ -199,7 +206,8 @@
                                 aria-hidden="true"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {{#each categories}}
-                            <li class="dropdown-item"><a href="/danh-sach-san-pham-theo-loai?id={{id}}">{{name}}</a></li>
+                            <li class="dropdown-item"><a href="/danh-sach-san-pham-theo-loai?id={{id}}">{{name}}</a>
+                            </li>
                             {{/each}}
 
                         </ul>

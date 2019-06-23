@@ -3,11 +3,15 @@ var router = express.Router();
 var productModel=require("../../models/games.model")
 
 router.get("/", (req, res) => {
-  res.redirect('/admin/products/all')
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
+    res.redirect('/admin/products/all')
 });
 
 router.get("/all", (req, res) => {
-  var p=productModel.all();
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
+    var p=productModel.all();
     // console.log("ahihi");
     // console.log(p);
     p.then(rows=>{
@@ -19,6 +23,8 @@ router.get("/all", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     var id=req.params.id
     var p=productModel.allGameOfACategory(id);
       // console.log("ahihi");
@@ -32,7 +38,9 @@ router.get("/:id", (req, res) => {
   });
 
 router.post("/all/add",async (req,res,next)=>{
-  // console.log("hello them nekB");
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
+    // console.log("hello them nekB");
   try {
       // console.log(req.body);
       await productModel.add(req.body)
@@ -47,7 +55,9 @@ router.post("/all/add",async (req,res,next)=>{
 })
 
 router.post("/all/update",async (req,res,next)=>{
-  // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
+    // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
   try {
       await productModel.update(req.body);
   } catch{
@@ -59,7 +69,9 @@ router.post("/all/update",async (req,res,next)=>{
 })
 
 router.post("/all/delete",async (req,res,next)=>{
-  // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
+    // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
   try {
       await productModel.delete("id",req.body.id)
   } catch{

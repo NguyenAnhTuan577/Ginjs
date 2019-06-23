@@ -19,11 +19,12 @@ module.exports = async (req, res) => {
   }
   console.log("----------------------------");
   // console.log(gamesSale);
-
+  console.log(req.user);
   res.render("index", {
     title: "GINJSGame - Shop game số 1 VN",
     categories: res.locals.lcCategories,
     gamesRun,
-    gamesSale
+    gamesSale,
+    user: req.user
   });
 };

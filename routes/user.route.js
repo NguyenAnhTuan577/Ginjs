@@ -9,6 +9,11 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/cart", async (req, res) => {
+
+  const data = {};
+  data.user = req.user;
+  if(!data.user) return res.redirect('/dang-nhap');
+
   var iduser = 1;
   try {
     var games = await gamesmodel.gameInCart(iduser);
@@ -49,6 +54,10 @@ router.get("/cart", async (req, res) => {
 });
 
 router.post("/cart", async (req, res) => {
+  const data = {};
+  data.user = req.user;
+  if(!data.user) return res.redirect('/dang-nhap');
+
   var entity = req.body;
   try {
     await gamesmodel.deleteGameIncart(entity);
@@ -64,6 +73,11 @@ router.get("/xac-thuc", (req, res) => {
 });
 
 router.get('/lib',async (req,res)=>{
+
+  const data = {};
+  data.user = req.user;
+  if(!data.user) return res.redirect('/dang-nhap');
+
   var iduser = 1;
   try {
     var [games,nums] = await Promise.all([ gamesmodel.gameinLib(iduser),gamesmodel.countInLib(iduser)]);

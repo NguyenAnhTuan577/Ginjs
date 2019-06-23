@@ -3,10 +3,14 @@ var router = express.Router();
 var userModel=require('../../models/users.model')
 
 router.get('/',(req,res)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     res.redirect('/admin/users/all')
 });
 
 router.get('/all',(req,res)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     var p=userModel.all();
     // console.log("ahihi");
     console.log(p);
@@ -19,6 +23,8 @@ router.get('/all',(req,res)=>{
 });
 
 router.get('/clients',(req,res)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     var p=userModel.clients();
     // console.log("ahihi");
     console.log(p);
@@ -31,6 +37,8 @@ router.get('/clients',(req,res)=>{
 });
 
 router.get('/admins',(req,res)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     var p=userModel.admins();
     // console.log("ahihi");
     console.log(p);
@@ -43,6 +51,8 @@ router.get('/admins',(req,res)=>{
 });
 
 router.post("/all/add",async (req,res,next)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     // console.log("hello them nekB");
     try {
         // console.log(req.body);
@@ -58,6 +68,8 @@ router.post("/all/add",async (req,res,next)=>{
 })
 
 router.post("/all/update",async (req,res,next)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
     try {
         await userModel.update(req.body);
@@ -70,6 +82,8 @@ router.post("/all/update",async (req,res,next)=>{
 })
 
 router.post("/all/delete",async (req,res,next)=>{
+    if(!req.user||req.user.username!=='admin') return res.redirect('/');
+
     // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
     try {
         await userModel.delete(req.body.id)

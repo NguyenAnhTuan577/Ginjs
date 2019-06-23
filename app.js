@@ -9,20 +9,53 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index.route");
 var usersRouter = require("./routes/user.route");
 
+var userModel = require("./models/users.model");
+
+//auth
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+passport.use(
+  new LocalStrategy(
+    { usernameField: "username" },
+    async (username, password, done) => {
+      try {
+        const d1 = await userModel.singleWithUsername(username);
+        var user = d1[0];
+        if (!user) {
+          return done(null, false, { message: "Incorrect username." });
+        }
+        const isPasswordValid = await userModel.validPassword(
+          username,
+          password
+        );
+        // console.log("asdasdsadsadsadsadsadsadsadsadsadsadsadsadsad");
+        // console.log(isPasswordValid);
+        if (!isPasswordValid[0]) {
+          // console.log("zo dccdcdcdcdcdcdcdcdcd ");
+          return done(null, false, { message: "Incorrect password." });
+        } else {
+          return done(null, user);
+        }
+      } catch (e) {
+        return done(e);
+      }
+    }
+  )
+);
+passport.serializeUser((user, done) => {
+  done(null, user.username);
+});
+
+passport.deserializeUser(async (username, done) => {
+  const d = await userModel.singleWithUsername(username);
+  const user = d[0];
+  done(undefined, user);
+});
+
 var app = express();
-// them tam
-// var mydb=require('./dbs/db');
-// var dm=mydb.load('select * from Tags')
 
-// var dm2=mydb.delete('tags',8);
-// var dm1=mydb.add('tags','(name)','($1)',['2D']);
-// var dm1=mydb.add('tags',{name: '2D'});
-
-// console.log("chay cchua");
-
-// view engine setups
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view options', { layout: '_layouts/layout' });
 app.engine(
   "hbs",
   exphbs({
@@ -41,6 +74,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 //mdw-----------
 app.use(require("./middlewares/index.mdw"));
+
+//passport
+
+app.use(
+  session({ secret: "truongtuan", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 //index----------------------------------------------
 app.use("/", indexRouter);
 
@@ -51,12 +93,12 @@ app.use("/user", usersRouter);
 app.use("/admin", require("./routes/admin/admin.route"));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

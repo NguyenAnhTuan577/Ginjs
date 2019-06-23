@@ -9,20 +9,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script>
     $(function () {
-
-        $('#txtDOB').datetimepicker({
-            format: 'd/m/Y',
-            timepicker: false,
-            mask: true,
-        });
-
         $('#registerForm').validate({
             rules: {
                 username: {
                     required: true,
-                    remote: {
-                        url: '/account/is-available'
-                    }
                 },
                 password: {
                     required: true,
@@ -38,10 +28,7 @@
                 email: {
                     required: true,
                     email: true
-                },
-                dob: {
-                    required: true
-                },
+                }
             },
             messages: {
                 username: {
@@ -63,9 +50,7 @@
                     required: 'Please enter a valid email address.',
                     email: 'Please enter a valid email address.'
                 },
-                dob: {
-                    required: 'Valid date of birth is required.',
-                },
+
             },
             errorElement: 'small',
             errorClass: 'help-block text-danger',
@@ -87,44 +72,50 @@
         <div class="col-md-7">
             <div class="section-title">
                 <h3 class="title">Tạo tài khoản mới</h3>
+                {{#if data.error}}
+                <div class="alert alert-danger" role="alert">
+                    {{data.error}}
+                </div>
+                {{!-- <h2 class="alert"></h2> --}}
+                {{/if}}
             </div>
-            <form novalidate action="POST" class="billing-details" method="POST" id="registerForm">
+            <form class="billing-details" method="POST" id="registerForm">
                 <div class="card shadow">
-
                     <div class="card-body">
 
                         <div class="form-group">
                             <label for="txtUsername">Username</label>
-                            <input type="text" class="form-control" id="txtUsername" name="username" autofocus>
+                            <input type="text" class="form-control" id="txtUsername" name="username"
+                                value="{{data.cache.username}}" autofocus>
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Password</label>
-                            <input type="password" class="form-control" id="txtPassword" name="password">
+                            <input type="password" value="{{data.cache.password}}" class="form-control" id="txtPassword"
+                                name="password">
                         </div>
                         <div class="form-group">
                             <label for="txtConfirm">Confirm</label>
-                            <input type="password" class="form-control" id="txtConfirm" name="confirm">
+                            <input type="password" value="{{data.cache.password}}" class="form-control" id="txtConfirm"
+                                name="confirm">
                         </div>
 
                         <hr class="mb-4">
-                        <h5 class="mb-3">Information</h5>
+                        <h5 class="mb-3">Thông tin cá nhân</h5>
                         <div class="form-group">
-                            <label for="txtName">Name</label>
-                            <input type="text" class="form-control" id="txtName" name="name">
+                            <label for="txtName">FullName</label>
+                            <input type="text" value="{{data.cache.fullname}}" class="form-control" id="txtName"
+                                name="fullname">
                         </div>
                         <div class="form-group">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtDOB">Date of birth</label>
-                            <input type="text" class="form-control" id="txtDOB" name="dob">
+                            <input type="text" value="{{data.cache.email}}" class="form-control" id="txtEmail"
+                                name="email">
                         </div>
                     </div>
                     <div class="card-footer text-right">
                         <button type="submit" class="btn btn-lg btn-success btn-block">
                             <i class="fa fa-check" aria-hidden="true"></i>
-                            Register
+                            Đăng ký
                         </button>
                     </div>
                 </div>
