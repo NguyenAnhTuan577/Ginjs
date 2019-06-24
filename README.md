@@ -1,5 +1,5 @@
 # Ginjs
-**shop game
+**shop game**
 
 
 * Đồ án cuối kỳ PT&TKPM 
@@ -19,4 +19,4 @@
    * npm install
    * npm start
 
-**happy ending!!!
+**happy ending!!!**
