@@ -53,6 +53,10 @@
                 </ul>
                 <ul class="header-links pull-right">
                     {{#if user}}
+                    {{#if user.type}}
+                        <li><a href="/admin"><i class="fas fa-user-cog"></i>Trang quản lý
+                        </a></li>
+                    {{/if}}
                     <li><a href="/cap-nhat-tai-khoan"><i class="fa fa-user-o"></i>{{this.user.fullname}} </a></li>
                     <li><a href="/dang-xuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
 
