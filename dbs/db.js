@@ -79,15 +79,23 @@ module.exports = {
   deletes: (table, entity) => {
     var sql = `DELETE FROM ${table} WHERE `;
     Object.keys(entity).forEach((key, i) => {
-      sql += ` ${key} = $${i + 1},`;
+      sql += ` ${key} = $${i + 1} and`;
     });
-    sql = sql.substr(0, sql.length - 1);
+    sql = sql.substr(0, sql.length - 4);
+    // console.log("------------------------------------------------");
+    // console.log(sql);
+    var values = Object.keys(entity).map(key => {
+      return entity[key];
+    });
+    // console.log("------------------------------------------------");
+    // console.log(values);
     var connection = createCon();
     connection.connect();
     return new Promise((resolve, reject) => {
-      connection.query(sql, (err, value) => {
+      connection.query(sql,values, (err, value) => {
+
         if (err) reject(err);
-        else resolve(value.affectedRows);
+        else resolve(value);
         connection.end();
       });
     });

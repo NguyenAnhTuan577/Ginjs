@@ -17,6 +17,14 @@ module.exports = async (req, res) => {
     );
     i.price = numeral(i.price).format("0,0");
   }
+  var numC,numL;
+if(req.user){
+  var [numInLib,numInCart]=await Promise.all([gamesmodel.numGameInLib(req.user.id),gamesmodel.numGameInCart(req.user.id)]);
+  numC=numInCart[0].num;
+  numL=numInLib[0].num;
+}
+  
+
   console.log("----------------------------");
   // console.log(gamesSale);
   console.log(req.user);
@@ -25,6 +33,8 @@ module.exports = async (req, res) => {
     categories: res.locals.lcCategories,
     gamesRun,
     gamesSale,
-    user: req.user
+    user: req.user,
+    numC,
+    numL
   });
 };

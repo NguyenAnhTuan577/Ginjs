@@ -15,22 +15,22 @@
                         </thead>
                         <tbody>
                             {{#each games}}
-                            <tr>
+                            <tr id="row_product_{{id}}">
                                 <td class="product-thumbnail" style="width: 250px"><img src={{image}}
                                         style="width: 100%;height: auto" alt="ảnh game"></td>
                                 <td class="product-name"><a href="/xem-chi-tiet?id={{id}}">{{name}}</a></td>
                                 <td class="product-price">{{price}}</td>
                                 <td class="product-price">{{priceR}}</td>
-                                <td class="product-remove"><button type="submit" class="primary-btn" name="id" style="float:right" value="{{id}}"><i
-                                            class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                <td class="product-remove"><a href="javascript:remove({{id}});" class="primary-btn" style="float:right" ><i
+                                            class="fa fa-trash" aria-hidden="true"></i></a></td>
                             </tr>
                             {{/each}}
                             <tr>
                                 <th class="product-thumbnail"></th>
                                 <th class="product-name">Thanh toán</th>
-                                <th class="product-price">₫{{total}}</th>
-                                <th class="product-quantity">₫{{totalR}}</th>
-                                <th class="product-remove"><a href="/thanh-toan?{{query}}"
+                                <th id="total" class="product-price">₫{{total}}</th>
+                                <th id="totalR" class="product-quantity">₫{{totalR}}</th>
+                                <th class="product-remove"><a href="/thanh-toan"
                                         class="primary-btn" style="float: right"><i class="fa fa-shopping-bag"
                                             aria-hidden="true"></i></a></th>
 

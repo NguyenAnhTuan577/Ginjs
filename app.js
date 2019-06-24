@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index.route");
-var usersRouter = require("./routes/user.route");
+var cartRouter = require("./routes/cart.route");
 
 var userModel = require("./models/users.model");
 
@@ -86,8 +86,12 @@ app.use(passport.session());
 //index----------------------------------------------
 app.use("/", indexRouter);
 
-//user-----------------------------------------------
-app.use("/user", usersRouter);
+// cart----------------------------------------------
+app.use('/cart',cartRouter);
+//lib -----------------
+app.use("/lib",require('./routes/lib.route'));
+//thanh toan-----------------------------------------------
+app.use("/thanh-toan", require('./routes/paid.route'));
 
 // them cho admin
 app.use("/admin", require("./routes/admin/admin.route"));
