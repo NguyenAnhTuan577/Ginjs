@@ -5,6 +5,10 @@ module.exports = {
     var sql = "select * from games";
     return db.load(sql);
   },
+  idGame: name => {
+    var sql = `select * from games g where g.name = '${name}'`;
+    return db.load(sql);
+  },
   allGameOfACategory: idCategory => {
     var sql = `select * from games g where g.idcategory = ${idCategory}`;
     return db.load(sql);

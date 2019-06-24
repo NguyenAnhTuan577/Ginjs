@@ -5,6 +5,15 @@ module.exports = {
         from categories c left join games g  on c.id=g.idcategory 
         group by c.id,c.name`);
   },
+  nameCategory: () => {
+    return db.load(`select * from categories`);
+  },
+  idCategory: (name) => {
+    console.log(name);
+    var sql=`select c.id from categories c where c.name='${name}'`
+    console.log(sql);
+    return db.load(sql);
+  },
   add: object => {
     return db.add("categories", object);
   },
