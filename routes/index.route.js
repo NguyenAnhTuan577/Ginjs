@@ -41,23 +41,9 @@ router.get("/dang-ky", function(req, res, next) {
 
 router.post("/dang-ky", authcontroller.registerPost);
 
-// router.post("/dang-ky", async (req, res, next) => {
-//   // res.render("signup", { title: "GINJSGame - Đăng ký tài khoản" });
-//   var entity = req.body;
-//   //entity.password = md5(entity.password);
-//   console.log(entity);
-//   try {
-//     await usermodel.add(entity);
-//   } catch (error) {
-//     console.log(error);
-//     res.redirect("/dang-ky");
-//   }
-//   res.redirect("/");
-
-// });
 
 //dang nhap --------------------------------------
-router.get("/dang-nhap/", function(req, res, next) {
+router.get("/dang-nhap/", (req, res, next)=> {
   res.render("signin", {
     title: "GINJSGame - Đăng ký tài khoản",
     customStyleSheet: "/stylesheets/signin.css",
@@ -71,32 +57,12 @@ router.post(
     failureRedirect: "/dang-nhap"
   })
 );
-// router.post("/dang-nhap", async (req, res, next) => {
-//   var entity = req.body;
-//   //entity.password = md5(entity.password);
-//   console.log(entity);
-//   try {
-//     await usermodel.login(entity.username, entity.password);
-//   } catch (error) {
-//     console.log(error);
-//     res.redirect("/dang-ky");
-//   }
-//   res.redirect("/");
 
-//   // res.render("signin", {
-//   //   title: "GINJSGame - Đăng ký tài khoản",
-//   //   customStyleSheet: "stylesheets/signin.css"
-//   // });
-// });
-//---------------------------------------------------
-router.get("/cap-nhat-tai-khoan/", function(req, res, next) {
-  res.render("updateinfo", { title: "GINJSGame - Cập nhật tài khoản" });
-});
-router.get("/cntk/", function(req, res, next) {
+router.get("/cap-nhat-tai-khoan", (req, res, next) => {
   res.render("updateinfo", { title: "GINJSGame - Cập nhật tài khoản" });
 });
 
-router.get("/quen-mat-khau/", function(req, res, next) {
+router.get("/quen-mat-khau", (req, res, next) => {
   res.render("forgotpassword", { title: "GINJSGame - Lấy lại mật khẩu" });
 });
 

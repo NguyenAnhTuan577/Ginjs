@@ -64,7 +64,7 @@
 					<h2 class="product-name">{{game.name}}</h2>
 					<ul class="product-links">
 						<li>Thể loại:</li>
-						<li><a href="/danh-sach-san-pham-theo-loai/{{game.idcategory}}">{{game.category}}</a></li>
+						<li><a href="/danh-sach-san-pham-theo-loai?id={{game.idcategory}}">{{game.category}}</a></li>
 					</ul>
 					<div>
 						<h3 class="product-price">{{game.sale}} <del class="product-old-price">{{game.price}}</del></h3>
@@ -74,7 +74,10 @@
 
 					<div class="add-to-cart">
 
-						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                        <a id="anchor_product_{{this.id}}"  href="javascript:add_to_cart({{this.id}});">
+                            <button type="button" id="button_product_{{this.id}}" class="add-to-cart-btn">
+                                <i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+                        </a>
 
 						<ul class="product-links">
 							<li>Tags:</li>
@@ -288,3 +291,4 @@
 		<!-- /container -->
 	</div>
 	<!-- /Section -->
+</div>

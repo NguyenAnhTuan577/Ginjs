@@ -30,9 +30,10 @@ module.exports = {
     );
   },
   singleWithID: id => {
-    return db.load(`select * from Accounts where id=${id}`);//cai này là số
+    return db.load(`select * from Accounts where id=${id}`); //cai này là số
   },
-  singleWithUsername: username => {  //username na2y khong6 ton621 tai5
+  singleWithUsername: username => {
+    //username na2y khong6 ton621 tai5
     return db.load(`select * from Accounts where username='${username}'`);
   },
   validPassword: (username, password) => {
@@ -40,7 +41,8 @@ module.exports = {
     return db.load(
       `select * from Accounts where username='${username}' and password = '${pass}'`
     );
-  }
+  },
+
 };
 
 //do t zo database

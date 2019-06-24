@@ -25,16 +25,24 @@ module.exports = async (req, res) => {
   //   for (const t of tags) {
   //     console.log("\n\n" + t.name);
   //   }
-  console.log(tags);
+  // console.log(tags);
   game.sale = numeral((game.price * game.saleoff) / 100).format("0,0");
   game.price = numeral(game.price).format("0,0");
-  console.log(game);
+  // console.log(game);
+  var numC,numL
+  if(req.user){
+    var [numInLib,numInCart]=await Promise.all([gamesmodel.numGameInLib(req.user.id),gamesmodel.numGameInCart(req.user.id)]);
+    numC=numInCart[0].num;
+    numL=numInLib[0].num;
+  }
 
   res.render("xem-chi-tiet", {
     title: `${game.name} - GINJSGame - Xem chi tiết`,
     categories: res.locals.lcCategories,
     game,
     images,
-    tags
+    tags,
+    user: req.user,
+    numC,numL
   });
 };

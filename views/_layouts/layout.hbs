@@ -53,7 +53,7 @@
                 </ul>
                 <ul class="header-links pull-right">
                     {{#if user}}
-                    <li><a href="/tai-khoan"><i class="fa fa-user-o"></i>{{this.user.fullname}} </a></li>
+                    <li><a href="/cap-nhat-tai-khoan"><i class="fa fa-user-o"></i>{{this.user.fullname}} </a></li>
                     <li><a href="/dang-xuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
 
                     {{else}}
@@ -113,14 +113,21 @@
                         <div class="header-ctn">
                             <!-- Wishlist -->
                             <div style="display: flex">
-                                <a href="/user/lib">
+                                <a href="/lib">
                                     <i class="fas fa-box "></i>
                                     <span>Game của bạn</span>
+                                    {{#if numL}}
+                                    <div id="numInLib" class="qty">{{numL}}</div>
+                                    {{/if}}
+
                                 </a>
-                                <a href="/user/cart">
+                                <a href="/cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Giỏ hàng</span>
-                                    <div class="qty">3</div>
+                                    {{#if numC}}
+                                    <div id="numInCart" class="qty">{{numC}}</div>
+                                    {{/if}}
+
                                 </a>
                             </div>
 

@@ -83,26 +83,51 @@ module.exports = {
     console.log(sql);
     return db.load(sql);
   },
-  gameInCart: idUser=>{
-    var sql=`select distinct g.*,image 
+  gameInCart: idUser => {
+    var sql = `select distinct g.*,image 
     from games g, Accounts a, gameincart gc , (select idgame,max(linkimage) as image from game_image group by idgame) as i
-    where g.id=gc.idgame and gc.idaccount = ${idUser} and g.id=i.idgame`
+    where g.id=gc.idgame and gc.idaccount = ${idUser} and g.id=i.idgame`;
     return db.load(sql);
   },
-  gameinLib: idUser=>{
-    var sql=`select distinct g.*,image 
+  gameinLib: idUser => {
+    var sql = `select distinct g.*,image 
     from games g, Accounts a, PaidGame pg , (select idgame,max(linkimage) as image from game_image group by idgame) as i
-    where g.id=pg.idgame and pg.idaccount = ${idUser} and g.id=i.idgame`
+    where g.id=pg.idgame and pg.idaccount = ${idUser} and g.id=i.idgame`;
     return db.load(sql);
   },
-  countInLib: idUser=>{
-    var sql=`select count(*) num
+  countInLib: idUser => {
+    var sql = `select count(*) num
     from PaidGame pg
-    where idaccount=${idUser}`
+    where idaccount=${idUser}`;
     return db.load(sql);
   },
 
-  deleteGameIncart: (entity)=>{
-    return db.delete("gameincart",entity)
-  } 
+  deleteGameIncart: entity => {
+    return db.deletes("gameincart", entity);
+  },
+  numGameInCart: iduser => {
+    var sql = `select count(*) num from gameincart where idaccount=${iduser}`;
+    return db.load(sql);
+  },
+  numGameInLib: iduser => {
+    var sql = `select count(*) num from paidgame where idaccount=${iduser}`;
+    return db.load(sql);
+  },
+
+  addToCart: (idgame,idaccount)=>{
+    var entity = { idgame,idaccount }
+    return db.add('gameincart', entity);
+  },
+  checkExists: (idgame,idacount)=>{
+  var sql =`select * from gameincart where idgame=${idgame} and idaccount=${idacount}`
+    return db.load(sql);
+  },
+  addToLib:(idgame,idaccount)=>{
+    var entity = { idgame,idaccount }
+    return db.add('paidgame', entity);
+  },
+  // deleteGameIncart: (idgame,idacount)=> {
+  //   const entity = {idgame, idacount}
+  //   return db.deletes(gameincart, entity);
+  // }
 };

@@ -27,7 +27,7 @@ module.exports = {
   accountRecovery: (req, res) => {
     if (req.user) res.redirect("/");
     else {
-      res.render("account/account_recovery", { title: "Khôi phục mật khẩu" });
+      res.render("forgotpassword", { title: "Khôi phục mật khẩu" });
     }
   },
 
