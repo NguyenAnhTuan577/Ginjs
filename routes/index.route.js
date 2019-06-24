@@ -35,7 +35,7 @@ router.get("/tim-kiem", async (req, res, next) => {
 });
 
 //dang ky---------------------------------------
-router.get("/dang-ky", function(req, res, next) {
+router.get("/dang-ky", function (req, res, next) {
   res.render("signup", { title: "GINJSGame - Đăng ký tài khoản" });
 });
 
@@ -43,7 +43,7 @@ router.post("/dang-ky", authcontroller.registerPost);
 
 
 //dang nhap --------------------------------------
-router.get("/dang-nhap/", (req, res, next)=> {
+router.get("/dang-nhap/", (req, res, next) => {
   res.render("signin", {
     title: "GINJSGame - Đăng ký tài khoản",
     customStyleSheet: "/stylesheets/signin.css",
@@ -59,12 +59,24 @@ router.post(
 );
 
 router.get("/cap-nhat-tai-khoan", (req, res, next) => {
-  res.render("updateinfo", { title: "GINJSGame - Cập nhật tài khoản" });
+  if (!req.user)
+    res.redirect('/');
+  res.render("updateinfo", { title: "GINJSGame - Cập nhật tài khoản", user: req.user });
 });
 
 router.get("/quen-mat-khau", (req, res, next) => {
   res.render("forgotpassword", { title: "GINJSGame - Lấy lại mật khẩu" });
 });
 
-router.get('/dang-xuat',authcontroller.logout);
+router.get('/dang-xuat', authcontroller.logout);
+
+router.post('/cap-nhat-tai-khoan', async (req, res, next) => {
+  console.log(req.body);
+  var obj = req.body;
+  obj.password = md5(obj.password)
+  await usermodel.update(obj)
+  // alert("Cập nhật thành công")
+  res.redirect('/')
+  // res.end("ok")
+})
 module.exports = router;

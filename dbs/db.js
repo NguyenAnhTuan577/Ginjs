@@ -59,7 +59,7 @@ module.exports = {
     });
     sql = sql.substr(0, sql.length - 1);
     sql += ` where id = ${object.id}`;
-    // console.log(sql);
+    console.log(sql);
     var values = Object.keys(object).map(key => {
       return object[key];
     });

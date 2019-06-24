@@ -29,7 +29,7 @@ router.post("/", async (req, res, next) => {
   for (const g of games) {
     await Promise.all([ gamesmodel.addToLib(g.id,user.id),gamesmodel.deleteGameIncart({idgame:g.id,idaccount: user.id})])
   }
-
+  // alert('Bạn đã thanh toán thành công');
   res.redirect('/');
   
 });
