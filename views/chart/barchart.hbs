@@ -57,9 +57,6 @@
 
                         <li><a href="javascript:;"><i class="ti-receipt"></i> <span>Sidebar
                                     Types</span></a></li>
-
-
-
                     </ul>
                 </nav>
             </div>
@@ -245,7 +242,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thêm người dùng</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -253,22 +250,18 @@
                     <div class="modal-body">
                         <form method="POST">
                             <div class="form-group">
-                                <label for="username" class="col-form-label">Username:</label>
-                                <input type="text" class="form-control" name="username" id="username">
-                                <label for="password" class="col-form-label">Password:</label>
-                                <input type="text" class="form-control" name="password" id="password">
-                                <label for="fullname" class="col-form-label">Fullname:</label>
-                                <input type="text" class="form-control" name="fullname" id="fullname">
-                                <label for="email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" name="email" id="email">
-                                <label for="money" class="col-form-label">Money:</label>
-                                <input type="text" class="form-control" name="money" id="money">
-                                <label for="type" class="col-form-label">Type:</label>
-                                <input type="text" class="form-control" name="type" id="type">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                                <label for="idcategory" class="col-form-label">IDCategory:</label>
+                                <input type="text" class="form-control" name="idcategory" id="idcategory">
+                                <label for="price" class="col-form-label">Price:</label>
+                                <input type="text" class="form-control" name="price" id="price">
+                                <label for="saleoff" class="col-form-label">SaleOff:</label>
+                                <input type="text" class="form-control" name="saleoff" id="saleoff">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                             <button type="submit" class="btn btn-primary"
-                                formaction="/admin/users/all/add">Thêm</button>
+                                formaction="/admin/products/all/add">Thêm</button>
                         </form>
                     </div>
                 </div>
@@ -280,7 +273,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết người dùng</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -288,26 +281,22 @@
                     <div class="modal-body">
                         <form method="POST">
                             <div class="form-group">
-                                <label for="update-id" class="col-form-label">Id:</label>
+                                <label for="update-id" class="col-form-label">ID:</label>
                                 <input type="text" class="form-control" name="id" id="update-id" readonly>
-                                <label for="update-username" class="col-form-label">Username:</label>
-                                <input type="text" class="form-control" name="username" id="update-username">
-                                <label for="update-password" class="col-form-label">Password:</label>
-                                <input type="text" class="form-control" name="password" id="update-password">
-                                <label for="update-fullname" class="col-form-label">Fullname:</label>
-                                <input type="text" class="form-control" name="fullname" id="update-fullname">
-                                <label for="update-email" class="col-form-label">Email:</label>
-                                <input type="text" class="form-control" name="email" id="update-email">
-                                <label for="update-money" class="col-form-label">Money:</label>
-                                <input type="text" class="form-control" name="money" id="update-money">
-                                <label for="update-type" class="col-form-label">Type:</label>
-                                <input type="text" class="form-control" name="type" id="update-type">
+                                <label for="update-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" name="name" id="update-name">
+                                <label for="update-idcategory" class="col-form-label">IDCategory:</label>
+                                <input type="text" class="form-control" name="idcategory" id="update-idcategory">
+                                <label for="update-price" class="col-form-label">Price:</label>
+                                <input type="text" class="form-control" name="price" id="update-price">
+                                <label for="update-saleoff" class="col-form-label">SaleOff:</label>
+                                <input type="text" class="form-control" name="saleoff" id="update-saleoff">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary" formaction="/admin/users/all/update">Cập
+                            <button type="submit" class="btn btn-primary" formaction="/admin/products/all/update">Cập
                                 nhật</button>
                             <button type="submit" class="btn btn-danger"
-                                formaction="/admin/users/all/delete">Xóa</button>
+                                formaction="/admin/products/all/delete">Xóa</button>
                         </form>
                     </div>
                 </div>
@@ -315,99 +304,32 @@
         </div>
         <!-- page title area end -->
         <div class="main-content-inner">
+            <!-- bar chart start -->
             <div class="row">
-
-                <!-- Striped table start -->
-                <div class="col-12 mt-5">
+                <div class="col-lg-6 mt-5"> 
                     <div class="card">
-
-                        <div class="card-header" style="display: inline">
-
-                            <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal"
-                                data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus"
-                                    aria-hidden="true"></i>Thêm người dùng</button>
-                        </div>
+                        <card-header>
+                            <h3>Doanh thu từng tháng của 2019</h3>
+                        </card-header>
                         <div class="card-body">
-                            {{!-- <h4 class="header-title">Striped Rows</h4> --}}
-
-                            <div class="single-table">
-                                <div class="table-responsive">
-                                    <table class="table table-striped text-center">
-                                        <thead class="text-uppercase">
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">UserName</th>
-                                                <th scope="col">Password</th>
-                                                <th scope="col">FullName</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Monney</th>
-                                                <th scope="col">Tài khoản admin</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {{#each this.users}}
-                                            <tr>
-                                                <th scope="row" id="id-{{id}}">{{id}}</th>
-                                                <td id="username-{{id}}">{{username}}</td>
-                                                <td id="password-{{id}}">{{password}}</td>
-                                                <td id="fullname-{{id}}">{{fullname}}</td>
-                                                <td id="email-{{id}}">{{email}}</td>
-                                                <td id="money-{{id}}">{{money}}</td>
-                                                <td id="type-{{id}}">{{type}}</td>
-                                                <td>
-                                                    <a type="button" class="text-secondary" data-toggle="modal"
-                                                        data-target="#editModal"><i class="fa fa-edit"
-                                                            onclick="func{{id}}()"></i></a>
-                                                    <script>
-                                                        function func{{id}} () {
-                                                            document.getElementById("update-id").value = document.getElementById("id-{{id}}").innerHTML;
-                                                            document.getElementById("update-username").value = document.getElementById("username-{{id}}").innerHTML;
-                                                            document.getElementById("update-password").value = document.getElementById("password-{{id}}").innerHTML;
-                                                            document.getElementById("update-fullname").value = document.getElementById("fullname-{{id}}").innerHTML;
-                                                            document.getElementById("update-email").value = document.getElementById("email-{{id}}").innerHTML;
-                                                            document.getElementById("update-money").value = document.getElementById("money-{{id}}").innerHTML;
-                                                            document.getElementById("update-type").value = document.getElementById("type-{{id}}").innerHTML;
-                                                        }
-
-                                                    </script>
-
-                                                </td>
-                                            </tr>
-                                            {{/each}}
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Striped table end -->
-                        <div class="card-footer">
-                            <nav aria-label="..." class="float-right">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <span class="page-link">Previous</span>
-                                    </li>
-                                    <li class="page-item active">
-                                        <span class="page-link">
-                                            1
-                                            <span
-                                                class="sr-only">(current)</span>
-                                        </span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">2 </a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            <div id="ambarchart4"></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-6 mt-5">
+                    <div class="card">
+                        <card-header>
+                            <h2>Doanh thu theo năm</h2>
+                        </card-header>
+                        <div class="card-body">
+                            <div id="ambarchart5"></div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+            <!-- bar chart end -->
         </div>
-        {{!-- ahihi --}}
     </div>
     <!-- main content area end -->
     <!-- footer area start-->

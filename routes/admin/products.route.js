@@ -5,13 +5,13 @@ var categoryModel = require("../../models/categories.model")
 var imageModel = require("../../models/game_image.model")
 
 router.get("/", (req, res) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
 
     res.redirect('/admin/products/all')
 });
 
 router.get("/addProduct", (req, res) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
     var p = categoryModel.nameCategory();
     p.then(rows => {
         console.log(rows);
@@ -22,7 +22,7 @@ router.get("/addProduct", (req, res) => {
 });
 
 router.get("/all", (req, res) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
 
     var p = productModel.all();
     // console.log("ahihi");
@@ -36,7 +36,7 @@ router.get("/all", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
 
     var id = req.params.id
     var p = productModel.allGameOfACategory(id);
@@ -51,7 +51,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/all/add", async (req, res, next) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
 
     // console.log("hello them nekB");
     try {
@@ -68,7 +68,7 @@ router.post("/all/add", async (req, res, next) => {
 })
 
 router.post("/addProduct", async (req, res, next) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
     var obj={name:req.body.name,idcategory:req.body.category,amount:req.body.amount,saleoff:req.body.saleoff,price:req.body.price,content:req.body.content,configuration:req.body.configuration}
     // console.log(obj);
     
@@ -101,7 +101,7 @@ router.post("/addProduct", async (req, res, next) => {
 
 
 router.post("/all/update", async (req, res, next) => {
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/');
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/');
 
     // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
     try {
@@ -121,9 +121,7 @@ router.post("/all/delete", async (req, res, next) => {
     //     return res.redirect('/');
     // else
     //     return res.redirect('/admin/products/all')
-    // if (!req.user || req.user.username !== 'admin') return res.redirect('/dang-nhap');
-
-    // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
+    if (!req.user || req.user.username !== 'admin') return res.redirect('/dang-nhap');
     try {
         await productModel.delete("id", req.body.id)
     } catch{

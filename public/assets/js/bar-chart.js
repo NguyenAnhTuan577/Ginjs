@@ -532,53 +532,53 @@ if ($('#ambarchart4').length) {
         "theme": "light",
         "marginRight": 70,
         "dataProvider": [{
-            "country": "USA",
-            "visits": 3025,
+            "month": "Tháng 1",
+            "visits": 4267000,
             "color": "#8918FE"
         }, {
-            "country": "China",
-            "visits": 1882,
+            "month": "Tháng 2",
+            "visits": 7235000,
             "color": "#7474F0"
         }, {
-            "country": "Japan",
-            "visits": 1809,
+            "month": "Tháng 3",
+            "visits": 9542000,
             "color": "#C5C5FD"
         }, {
-            "country": "Germany",
-            "visits": 1322,
+            "month": "Tháng 4",
+            "visits": 17340000,
             "color": "#952FFE"
         }, {
-            "country": "UK",
-            "visits": 1122,
+            "month": "Tháng 5",
+            "visits": 13526000,
             "color": "#7474F0"
         }, {
-            "country": "France",
-            "visits": 1114,
+            "month": "Tháng 6",
+            "visits": 25456000,
             "color": "#CBCBFD"
+        },{
+            "month": "Tháng 7",
+            "visits": 24267000,
+            "color": "#37518FE"
         }, {
-            "country": "India",
-            "visits": 984,
-            "color": "#FD9C21"
+            "month": "Tháng 8",
+            "visits": 17232000,
+            "color": "#1264F0"
         }, {
-            "country": "Spain",
-            "visits": 711,
-            "color": "#0D8ECF"
+            "month": "Tháng 9",
+            "visits": 19212000,
+            "color": "#C575FD"
         }, {
-            "country": "Netherlands",
-            "visits": 665,
-            "color": "#0D52D1"
+            "month": "Tháng 10",
+            "visits": 12560000,
+            "color": "#943FFE"
         }, {
-            "country": "Russia",
-            "visits": 580,
-            "color": "#2A0CD0"
+            "month": "Tháng 11",
+            "visits": 15366000,
+            "color": "#3094F0"
         }, {
-            "country": "South Korea",
-            "visits": 443,
-            "color": "#8A0CCF"
-        }, {
-            "country": "Canada",
-            "visits": 441,
-            "color": "#9F43FE"
+            "month": "Tháng 12",
+            "visits": 28756000,
+            "color": "#923BFD"
         }],
         "valueAxes": [{
             "axisAlpha": 0,
@@ -599,7 +599,7 @@ if ($('#ambarchart4').length) {
             "cursorAlpha": 0,
             "zoomable": false
         },
-        "categoryField": "country",
+        "categoryField": "month",
         "categoryAxis": {
             "gridPosition": "start",
             "labelRotation": 45
@@ -617,36 +617,36 @@ if ($('#ambarchart5').length) {
         "type": "serial",
         "theme": "light",
         "dataProvider": [{
-            "name": "John",
-            "points": 35654,
+            "year": "2013",
+            "points": 53219000,
             "color": "#7F8DA9"
         }, {
-            "name": "Damon",
-            "points": 65456,
+            "year": "2014",
+            "points": 34198000,
             "color": "#FEC514"
         }, {
-            "name": "Patrick",
-            "points": 45724,
+            "year": "2015",
+            "points": 65981000,
             "color": "#952FFE"
         }, {
-            "name": "Mark",
-            "points": 23654,
+            "year": "2016",
+            "points": 81289000,
             "color": "#8282F1"
         }, {
-            "name": "Natasha",
-            "points": 35654,
+            "year": "2017",
+            "points": 145672000,
             "color": "#2599D4"
         }, {
-            "name": "Adell",
-            "points": 55456,
+            "year": "2018",
+            "points": 96278000,
             "color": "#2563D6"
         }, {
-            "name": "Alessandro",
-            "points": 13654,
+            "year": "2019",
+            "points": 194759000,
             "color": "#9524D4"
         }],
         "valueAxes": [{
-            "maximum": 80000,
+            "maximum": 200000000,
             "minimum": 0,
             "axisAlpha": 0,
             "dashLength": 4,
@@ -670,7 +670,7 @@ if ($('#ambarchart5').length) {
         "marginLeft": 0,
         "marginBottom": 0,
         "autoMargins": false,
-        "categoryField": "name",
+        "categoryField": "year",
         "categoryAxis": {
             "axisAlpha": 0,
             "gridAlpha": 0,

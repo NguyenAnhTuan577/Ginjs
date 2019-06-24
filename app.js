@@ -91,6 +91,7 @@ app.use("/user", usersRouter);
 
 // them cho admin
 app.use("/admin", require("./routes/admin/admin.route"));
+// app.use("/admin/charts", require("./routes/admin/admin.route"));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

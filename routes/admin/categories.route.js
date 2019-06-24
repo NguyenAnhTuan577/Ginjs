@@ -45,7 +45,9 @@ router.post('/all', async (req, res, next) => {
 
 router.post("/all/delete",async (req,res,next)=>{
     if(!req.user) return res.redirect('/dang-nhap');
-    if(!req.user.username!=='admin') return res.redirect('/'); //
+
+    // if(!req.user.username!=='admin') return res.redirect('/');
+     //
 
     // console.log("asdfghjhgfdsdfghjhgfdsdfghjhgfdsdrftyuytrertyu");
     try {

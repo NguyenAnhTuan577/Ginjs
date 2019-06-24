@@ -174,7 +174,7 @@ if ($('#verview-shart').length) {
         "type": "line",
 
         "scale-x": { //X-Axis
-            "labels": ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"],
+            "labels": ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
             "label": {
                 "font-size": 14,
                 "offset-x": 0,
@@ -190,33 +190,47 @@ if ($('#verview-shart').length) {
         },
         "plot": { "aspect": "spline" },
         "series": [{
-                "values": [20, 25, 30, 35, 45, 40, 40, 35, 25, 17, 40, 50],
-                "line-color": "#F0B41A",
-                /* "dotted" | "dashed" */
-                "line-width": 5 /* in pixels */ ,
-                "marker": { /* Marker object */
-                    "background-color": "#D79D3B",
-                    /* hexadecimal or RGB value */
-                    "size": 5,
-                    /* in pixels */
-                    "border-color": "#D79D3B",
-                    /* hexadecimal or RBG value */
-                }
-            },
-            {
-                "values": [40, 45, 30, 20, 30, 35, 45, 55, 40, 30, 55, 30],
-                "line-color": "#0884D9",
-                /* "dotted" | "dashed" */
-                "line-width": 5 /* in pixels */ ,
-                "marker": { /* Marker object */
-                    "background-color": "#067dce",
-                    /* hexadecimal or RGB value */
-                    "size": 5,
-                    /* in pixels */
-                    "border-color": "#067dce",
-                    /* hexadecimal or RBG value */
-                }
+            "values": [25000, 34000, 64000, 123000, 62000, 71000],
+            "line-color": "#F0B41A",
+            /* "dotted" | "dashed" */
+            "line-width": 5 /* in pixels */,
+            "marker": { /* Marker object */
+                "background-color": "#D79D3B",
+                /* hexadecimal or RGB value */
+                "size": 5,
+                /* in pixels */
+                "border-color": "#D79D3B",
+                /* hexadecimal or RBG value */
             }
+        },
+        {
+            "values": [83000, 62000, 76000, 92000, 51000, 21000],
+            "line-color": "#0884D9",
+            /* "dotted" | "dashed" */
+            "line-width": 5 /* in pixels */,
+            "marker": { /* Marker object */
+                "background-color": "#067dce",
+                /* hexadecimal or RGB value */
+                "size": 5,
+                /* in pixels */
+                "border-color": "#067dce",
+                /* hexadecimal or RBG value */
+            }
+        },
+        {
+            "values": [45000, 49000, 92000, 99000, 124000, 147000],
+            "line-color": "#0254D2",
+            /* "dotted" | "dashed" */
+            "line-width": 5 /* in pixels */,
+            "marker": { /* Marker object */
+                "background-color": "#067dce",
+                /* hexadecimal or RGB value */
+                "size": 5,
+                /* in pixels */
+                "border-color": "#067dce",
+                /* hexadecimal or RBG value */
+            }
+        }
         ]
     };
 
@@ -258,7 +272,7 @@ if ($('#mvaluechart').length) {
             },
             tooltips: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         return tooltipItem.yLabel;
                     }
                 }
@@ -307,7 +321,7 @@ if ($('#mvaluechart2').length) {
             },
             tooltips: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         return tooltipItem.yLabel;
                     }
                 }
@@ -356,7 +370,7 @@ if ($('#mvaluechart3').length) {
             },
             tooltips: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         return tooltipItem.yLabel;
                     }
                 }
@@ -405,7 +419,7 @@ if ($('#mvaluechart4').length) {
             },
             tooltips: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         return tooltipItem.yLabel;
                     }
                 }
@@ -447,17 +461,17 @@ if ($('#visitor_graph').length) {
             gridLineWidth: 1
         },
         series: [{
-                name: 'USD',
-                data: [400, 470, 520, 500, 420, 350, 320, 400, 550, 600, 500, 420, 400],
-                fillColor: 'rgba(76, 57, 249, 0.5)',
-                lineColor: 'transparent'
-            },
-            {
-                name: 'BTC',
-                data: [450, 520, 550, 400, 450, 500, 400, 450, 500, 450, 400, 500, 450],
-                fillColor: 'rgba(103, 13, 251, 0.5)',
-                lineColor: 'transparent'
-            }
+            name: 'USD',
+            data: [400, 470, 520, 500, 420, 350, 320, 400, 550, 600, 500, 420, 400],
+            fillColor: 'rgba(76, 57, 249, 0.5)',
+            lineColor: 'transparent'
+        },
+        {
+            name: 'BTC',
+            data: [450, 520, 550, 400, 450, 500, 400, 450, 500, 450, 400, 500, 450],
+            fillColor: 'rgba(103, 13, 251, 0.5)',
+            lineColor: 'transparent'
+        }
         ]
     });
 }
@@ -958,86 +972,90 @@ if ($('#amlinechart4').length) {
             "useGraphSettings": true
         },
         "dataProvider": [{
-            "year": 1930,
-            "italy": 1,
-            "germany": 5,
-            "uk": 3
+            "month": 'Tháng 1',
+            "cyberpunk": 123000,
+            "Borderlands": 537000,
+            "Warhammer": 326000
         }, {
-            "year": 1934,
-            "italy": 1,
-            "germany": 2,
-            "uk": 6
+            "month": 'Tháng 2',
+            "cyberpunk": 154000,
+            "Borderlands": 287000,
+            "Warhammer": 692000
         }, {
-            "year": 1938,
-            "italy": 2,
-            "germany": 3,
-            "uk": 1
+            "month": 'Tháng 3',
+            "cyberpunk": 219000,
+            "Borderlands": 348000,
+            "Warhammer": 178000
         }, {
-            "year": 1950,
-            "italy": 3,
-            "germany": 4,
-            "uk": 1
+            "month": 'Tháng 4',
+            "cyberpunk": 329000,
+            "Borderlands": 418000,
+            "Warhammer": 360000
         }, {
-            "year": 1954,
-            "italy": 5,
-            "germany": 1,
-            "uk": 2
+            "month": 'Tháng 5',
+            "cyberpunk": 574000,
+            "Borderlands": 191000,
+            "Warhammer": 286000
         }, {
-            "year": 1958,
-            "italy": 3,
-            "germany": 2,
-            "uk": 1
+            "month": 'Tháng 6',
+            "cyberpunk": 342000,
+            "Borderlands": 218000,
+            "Warhammer": 109000
+        },{
+            "month": 'Tháng 7',
+            "cyberpunk": 443000,
+            "Borderlands": 137000,
+            "Warhammer": 276000
         }, {
-            "year": 1962,
-            "italy": 1,
-            "germany": 2,
-            "uk": 3
+            "month": 'Tháng 8',
+            "cyberpunk": 144000,
+            "Borderlands": 387000,
+            "Warhammer": 632000
         }, {
-            "year": 1966,
-            "italy": 2,
-            "germany": 1,
-            "uk": 5
+            "month": 'Tháng 9',
+            "cyberpunk": 319000,
+            "Borderlands": 548000,
+            "Warhammer": 178000
         }, {
-            "year": 1970,
-            "italy": 3,
-            "germany": 5,
-            "uk": 2
+            "month": 'Tháng 10',
+            "cyberpunk": 259000,
+            "Borderlands": 498000,
+            "Warhammer": 430000
         }, {
-            "year": 1974,
-            "italy": 4,
-            "germany": 3,
-            "uk": 6
+            "month": 'Tháng 11',
+            "cyberpunk": 521000,
+            "Borderlands": 231000,
+            "Warhammer": 212000
         }, {
-            "year": 1978,
-            "italy": 1,
-            "germany": 2,
-            "uk": 4
+            "month": 'Tháng 12',
+            "cyberpunk": 672000,
+            "Borderlands": 348000,
+            "Warhammer": 245000
         }],
         "startDuration": 0.5,
         "graphs": [{
-            "balloonText": "place taken by Italy in [[category]]: [[value]]",
+            "balloonText": "Doanh thu game Cyberpunk trong [[category]]: [[value]]",
             "bullet": "round",
-            "hidden": true,
-            "title": "Italy",
-            "valueField": "italy",
+            "title": "cyberpunk",
+            "valueField": "cyberpunk",
             "fillAlphas": 0,
             "lineColor": "#31ef98",
             "lineThickness": 2,
             "negativeLineColor": "#17e285",
         }, {
-            "balloonText": "place taken by Germany in [[category]]: [[value]]",
+            "balloonText": "Doanh thu game Borderlands trong [[category]]: [[value]]",
             "bullet": "round",
-            "title": "Germany",
-            "valueField": "germany",
+            "title": "Borderlands",
+            "valueField": "Borderlands",
             "fillAlphas": 0,
             "lineColor": "#9656e7",
             "lineThickness": 2,
             "negativeLineColor": "#c69cfd"
         }, {
-            "balloonText": "place taken by UK in [[category]]: [[value]]",
+            "balloonText": "Doanh thu game Warhammer trong [[category]]: [[value]]",
             "bullet": "round",
-            "title": "United Kingdom",
-            "valueField": "uk",
+            "title": "Warhammer",
+            "valueField": "Warhammer",
             "fillAlphas": 0,
             "lineColor": "#31aeef",
             "lineThickness": 2,
@@ -1047,7 +1065,7 @@ if ($('#amlinechart4').length) {
             "cursorAlpha": 0,
             "zoomable": false
         },
-        "categoryField": "year",
+        "categoryField": "month",
         "categoryAxis": {
             "gridPosition": "start",
             "axisAlpha": 0,
@@ -2055,7 +2073,7 @@ if ($('#salesanalytic').length) {
             "title": "Sales",
             "position": "left",
             "autoGridCount": false,
-            "labelFunction": function(value) {
+            "labelFunction": function (value) {
                 return "$" + Math.round(value) + "M";
             }
         }, {
